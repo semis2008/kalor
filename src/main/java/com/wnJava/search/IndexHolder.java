@@ -36,25 +36,42 @@ public class IndexHolder {
     private final static Log log = LogFactory.getLog(IndexHolder.class);
     private final static IKAnalyzer analyzer = new IKAnalyzer();
     private final static int MAX_COUNT = 1000;
-	private String indexPath;
+    private static String INDEX_DIR = "D:\\TEST";
+	private static String indexPath;
+	
+	private IndexHolder() {
+		try {
+			init();
+		} catch (IOException e) {
+			log.error("初始化");
+			e.printStackTrace();
+		}
+	}
 
+	/*
+	 * 使用内部类实现单例模式
+	 */
+	private static class IndexHolderContainer{        
+	      private static IndexHolder instance = new IndexHolder();        
+	}        
+	public static IndexHolder getInstance() {
+		  return IndexHolderContainer.instance;    
+	}
+	
 	/**
 	 * 构造索引库管理实例
 	 * @param idx_path
 	 * @return
 	 * @throws IOException
 	 */
-	public static IndexHolder init(String idx_path) throws IOException {
-		IndexHolder holder = new IndexHolder();
-		idx_path = FilenameUtils.normalize(idx_path);
-		File file = new File(idx_path);
+	private static void init() throws IOException {
+		INDEX_DIR = FilenameUtils.normalize(INDEX_DIR);
+		File file = new File(INDEX_DIR);
 		if(!file.exists() || !file.isDirectory())
-			throw new FileNotFoundException(idx_path);
-		if(!idx_path.endsWith(File.separator))
-			idx_path += File.separator;		
-		holder.indexPath = idx_path;
-		
-		return holder;
+			throw new FileNotFoundException(INDEX_DIR);
+		if(!INDEX_DIR.endsWith(File.separator))
+			INDEX_DIR += File.separator;		
+		indexPath = INDEX_DIR;
 	}
 	
 	private IndexWriter getWriter(Class<? extends Searchable> objClass) throws IOException {

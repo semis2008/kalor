@@ -44,8 +44,9 @@ public class LuceneTester {
 	 * @throws ParseException 
 	 */
 	public static void main(String[] args) throws IOException, ParseException {
-		IndexHolder holder = IndexHolder.init("D:\\TEST");
+		IndexHolder holder = IndexHolder.getInstance();
 		Post post = new Post();
+		holder.optimize(post.getClass());
 		
 		post.setId(11l);
 		post.setTitle("1234");
@@ -53,9 +54,14 @@ public class LuceneTester {
 		holder.add(Arrays.asList(post));
 		holder.delete(Arrays.asList(post));
 		
-		Query q = SearchHelper.makeQuery("title", "1234", 1.2f) ;
+		Query q = SearchHelper.makeQuery("title", "1234", 1.0f) ;
+
 		 List<Searchable> hits = holder.find(Post.class, q, null, new Sort(), 1, 100);
-		 System.out.println(hits.size());
+		  for (Searchable searchable : hits) {
+			  Post p = (Post)searchable;
+              System.out.println(p.getId()+";"+p.getTitle()+";"+p.getBody());
+          }
+		  
 	}
 
 }

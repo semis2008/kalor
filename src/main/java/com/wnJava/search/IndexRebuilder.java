@@ -38,7 +38,7 @@ public class IndexRebuilder {
 		//每批次处理对象数，提升这个数值可提醒构建的性能，但要注意内存是否足够
 		int batch_count = NumberUtils.toInt(cmd.getOptionValue('s'), DEFAULT_BATCH_COUNT);
 		//初始化索引管理器
-		IndexHolder holder = IndexHolder.init(idx_path);
+		IndexHolder holder = IndexHolder.getInstance();
 		for(String beanClass : StringUtils.split(beans, ',')){
 			//Searchable obj = (Searchable)IndexRebuilder.class.getClassLoader().loadClass(beanClass).newInstance();
 			Searchable obj = (Searchable)Class.forName(beanClass).newInstance();

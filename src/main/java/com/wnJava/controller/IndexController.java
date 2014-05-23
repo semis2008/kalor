@@ -29,7 +29,7 @@ import com.wnJava.vo.TagVO;
  */
 @Controller
 @RequestMapping("/index")
-public class IndexRedirectController {
+public class IndexController {
 	
 	@Resource
 	private UserService userService;
@@ -100,15 +100,13 @@ public class IndexRedirectController {
 		hotTags.add(new TagVO("CSS","3"));
 		hotTags.add(new TagVO("开发计划","3"));
 		
-		
-		
 		req.setAttribute("hotTags", hotTags);
 		req.setAttribute("latestDiaries", diaries);
 		req.setAttribute("leaveMsgs", leaveMsgs);
 		req.setAttribute("hotDiaries", hotDiaries);
 		req.setAttribute("activeUsers", activeUsers);
 		req.setAttribute("topDiary", topDiary);
-		return new ModelAndView("indexPage");
+		return new ModelAndView("new/index");
 	}
 	/**
 	 * 显示主页右侧内容

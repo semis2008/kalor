@@ -56,7 +56,7 @@ public class IndexUpdater {
 			System.exit(-2);
 		}
 		//初始化索引管理器
-		IndexHolder holder = IndexHolder.init(idx_path);
+		IndexHolder holder = IndexHolder.getInstance();
 		
 		//处理索引更新
 		List<IndexTask> tasks = tasker.list();
