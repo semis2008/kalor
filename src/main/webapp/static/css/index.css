@@ -170,10 +170,7 @@ ul.meta {
     font-weight: 400;
     float:right;
 }
-
-.diarySec{
-	position: relative;
-}
+ 
 .changeTopDiary{
 	position: absolute;
 	width:30px;
