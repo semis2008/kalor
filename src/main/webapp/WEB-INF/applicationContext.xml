@@ -15,6 +15,8 @@
  	<mvc:annotation-driven />
  	<!-- 静态文件 -->
  	<mvc:resources location="/static/" mapping="/static/**" />
+ 	<!-- 静态文件 -->
+ 	<mvc:resources location="/media/" mapping="/media/**" />
  	
  	<!-- 视图 -->
 	<bean

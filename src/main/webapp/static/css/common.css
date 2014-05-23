@@ -1,20 +1,26 @@
 html,body {
 	height: 100%;
 }
- 
+
 body {
 	padding-left: 0;
 	padding-right: 0;
 	margin: 0;
 	padding-top: 40px;
 }
-#content{
+
+#content {
 	min-height: 70%;
 }
+
 .footer {
 	background-color: #252525;
 	color: white;
 	padding: 45px 0;
+}
+
+.left {
+	float: left;
 }
 
 .padding-large {
@@ -37,7 +43,6 @@ body {
 	text-align: center;
 }
 
-
 .article {
 	margin-top: 40px;
 }
@@ -49,35 +54,44 @@ body {
 .margin-middle {
 	margin: 30px;
 }
-.margin-top-small{
+
+.margin-top-small {
 	margin-top: 15px;
 }
-.margin-top-middle{
+
+.margin-top-middle {
 	margin-top: 30px;
 }
-.margin-top-large{
+
+.margin-top-large {
 	margin-top: 60px;
 }
-.margin-bottom-middle{
+
+.margin-bottom-middle {
 	margin-bottom: 30px;
 }
+
 .margin-small {
 	margin: 15px;
 }
-.margin-right-middle{
+
+.margin-right-middle {
 	margin-right: 15px;
 }
-.margin-right-small{
+
+.margin-right-small {
 	margin-right: 10px;
 }
 
-.margin-left-small{
+.margin-left-small {
 	margin-left: 10px;
 }
-.pointer{
-cursor: pointer;
+
+.pointer {
+	cursor: pointer;
 }
-.fixed{
+
+.fixed {
 	position: fixed;
 }
 
@@ -89,7 +103,7 @@ cursor: pointer;
 .margin-bottom-middle {
 	margin-bottom: 25px;
 }
- 
+
 .margin-top-bottom-mini {
 	margin-bottom: 5px;
 	margin-top: 5px;
@@ -113,7 +127,7 @@ cursor: pointer;
 	padding: 0px;
 }
 
-.musicbox{
+.musicbox {
 	top: 40px;
 	right: 0px;
 	background-color: #333;
@@ -122,26 +136,36 @@ cursor: pointer;
 	height: 110px;
 	z-index: 100;
 }
-.musicbox-mini{
+
+.musicbox-mini {
 	top: 40px;
 	right: 0px;
-	width:120px;
+	width: 120px;
 	background-color: #333;
 	opacity: 0.8;
 	color: white;
 	height: 25px;
 	z-index: 100;
 }
-.musicbox-mini marquee{
+
+.musicbox-mini marquee {
 	width: 70px;
 }
-h1, h2, h3, h4, h5, h6, h7 {
-    color: #6B7770;
-    font-weight: 700;
-    text-transform: uppercase;
+
+h1,h2,h3,h4,h5,h6,h7 {
+	color: #6B7770;
+	font-weight: 700;
+	text-transform: uppercase;
 }
-.goToTopDiv{
+
+.diaryContent{
+	font-size: 10.5pt;
+	line-height: 1.6;
+	
+}
+
+.goToTopDiv {
 	bottom: 100px;
-	right:50px;
+	right: 50px;
 	margin: 0 0 10%;
 }

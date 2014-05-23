@@ -1,4 +1,4 @@
-<%@ page pageEncoding="utf-8" import="java.util.Calendar" %>
+<%@ page pageEncoding="utf-8" %>
 <%
 	// 设置basePath参数
 	String contextPath = request.getContextPath(); // 工程路径
@@ -7,7 +7,7 @@
 	String title = "wnJava 网";
 	String description = "测试描述！";
 	String keywords = "java";
-	String version = "?1.0";
+	String version = "?15531350";
 	String imgPath = contextPath + "/static/img";
 	String cssPath = contextPath +"/static/css";
 	String jsPath = contextPath +"/static/js";

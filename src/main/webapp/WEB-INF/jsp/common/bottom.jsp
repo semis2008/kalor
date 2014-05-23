@@ -10,10 +10,10 @@
 <div class="container">
 	<ul class="unstyled">
 		<li class="span2"><h5>作品</h5> <a target="_blank"
-			href="javascript:void(0)">Chat Bear平台</a><br />
-			<a href="javascript:void(0)">java迭代打包工具</a><br /> <a href="javascript:void(0)">Help</a><br /> <a
-			target="_blank" href="javascript:void(0)">开发者 /API</a></li>
-		<li class="span2"><h5>About</h5> <a href="javascript:void(0)">关于 WNChat</a> <br />
+			href="#">Chat Bear平台</a><br />
+			<a href="#">java迭代打包工具</a><br /> <a href="#">Help</a><br /> <a
+			target="_blank" href="#">开发者 /API</a></li>
+		<li class="span2"><h5>About</h5> <a href="#">关于 WNChat</a> <br />
 			<a href="#">历程</a> <br /> <a href="#">Core Technology</a> <br /></li>
 		<li class="span2"><h5>友情链接：</h5> <a target="_blank"
 			href="http://baipeng.alwaysdata.net">BAI Peng's</a><br /> <a
@@ -30,9 +30,9 @@
 		&copy; 2013
 		<%=ICP_BEIAN %>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		Author : <a
-			href="javascript:void(0)">偷懒的熊</a>
+			href="#">偷懒的熊</a>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Phone : 1581 0112 386 
-			&nbsp;&nbsp;|&nbsp;&nbsp;Email : <a href="javascript:void(0)">wnjava@126.com</a>
+			&nbsp;&nbsp;|&nbsp;&nbsp;Email : <a href="#">wnjava@126.com</a>
 	</div>
 </div>
 </footer>
