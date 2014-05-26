@@ -101,10 +101,6 @@
 		<extension>ppt</extension>
 		<mime-type>application/vnd.ms-powerpoint</mime-type>
 	</mime-mapping>
-	<icon>
-		<small-icon>/img/small.gif</small-icon>
-		<large-icon>/img/large.gif</large-icon>
-	</icon>
 	<welcome-file-list>
 		<welcome-file>/jsp/index.jsp</welcome-file>
 	</welcome-file-list>

@@ -34,4 +34,4 @@
 	type="text/css" <%=staticPath %>="screen" />
 <!-- END PAGE LEVEL STYLES -->
 
-<link rel="shortcut icon" href="<%=staticPath %>/image/favicon.ico" />
+<link rel="shortcut icon" href="<%=staticPath %>/image/kalor.ico" />

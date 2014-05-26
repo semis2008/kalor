@@ -4,7 +4,7 @@
 
 <!-- BEGIN FOOTER -->
 <div class="footer">
-	<div class="footer-inner">2013 &copy; <%=ICP_BEIAN %></div>
+	<div class="footer-inner">2014 &copy; <%=ICP_BEIAN %> | Designed with METRONIC.</div>
 	<div class="footer-tools">
 		<span class="go-top"> <i class="icon-angle-up"></i>
 		</span>
