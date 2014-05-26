@@ -80,32 +80,25 @@ public class IndexController {
 		//随机获取推荐日志
 		DiaryBO topDiary = diaryService.getTopDiaryRand();	
 		//获取活跃用户
-		List<UserBO> activeUsers = userService.getActiveUsers(8);
+		List<UserBO> activeUsers = userService.getActiveUsers(16);
 		//获取热门日志
 		Map<String,List<DiaryBO>> hotDiaries = diaryService.getHotDiaries();
 		//获取留言
-		List<LeaveMsgBO> leaveMsgs = userService.getLeaveMsg(4);
-		//获取热门tag
-		//FIXME hotTag的计算需要进一步完善，目前只是写死的 
-		List<TagVO> hotTags = new ArrayList<TagVO>();
-		hotTags.add(new TagVO("Js","2"));
-		hotTags.add(new TagVO("Java","4"));
-		hotTags.add(new TagVO("Linux","1"));
-		hotTags.add(new TagVO("Html5","1"));
-		hotTags.add(new TagVO("测试","2"));
-		hotTags.add(new TagVO("MySql","2"));
-		hotTags.add(new TagVO("转载","3"));
-		hotTags.add(new TagVO("公告","4"));
-		hotTags.add(new TagVO("面试","3"));
-		hotTags.add(new TagVO("CSS","3"));
-		hotTags.add(new TagVO("开发计划","3"));
+		List<LeaveMsgBO> leaveMsgs = userService.getLeaveMsg(10);
 		
-		req.setAttribute("hotTags", hotTags);
+		//构造前台所需的Activeuserlist
+		List<List<UserBO>> activeUsersList = new ArrayList<List<UserBO>>();
+		for(int i=0;i<activeUsers.size();i+=2) {
+			List<UserBO> rowUsers = new ArrayList<UserBO>();
+			rowUsers.add(activeUsers.get(i));
+			rowUsers.add(activeUsers.get(i+1));
+			activeUsersList.add(rowUsers);
+		}
+		
 		req.setAttribute("latestDiaries", diaries);
 		req.setAttribute("leaveMsgs", leaveMsgs);
 		req.setAttribute("hotDiaries", hotDiaries);
-		req.setAttribute("activeUsers", activeUsers);
-		req.setAttribute("topDiary", topDiary);
+		req.setAttribute("activeUsers", activeUsersList);
 		return new ModelAndView("new/index");
 	}
 	/**

@@ -3,25 +3,26 @@
 <div class="portlet paddingless">
 	<div class="portlet-title line">
 		<div class="caption">
-			<i class="icon-bell"></i> 动态
+			<i class="icon-bell"></i> 主题动态
 		</div>
 		<div class="tools">
-			<a href="" class="collapse"></a></a> <a href="" class="reload"></a>
+			<a href="" class="collapse"></a><a href="" class="reload"></a>
 		</div>
 	</div>
 	<div class="portlet-body">
 		<!--BEGIN TABS-->
 		<div class="tabbable tabbable-custom">
 			<ul class="nav nav-tabs">
-				<li class="active"><a href="#tab_1_1" data-toggle="tab">主题</a></li>
-				<li><a href="#tab_1_2" data-toggle="tab">News</a></li>
+				<li class="active"><a href="#tab_1_1" data-toggle="tab">最新</a></li>
+				<li><a href="#tab_1_2" data-toggle="tab">热门</a></li>
 				<li><a href="#tab_1_3" data-toggle="tab">活跃用户</a></li>
 			</ul>
 			<div class="tab-content">
 				<div class="tab-pane active" id="tab_1_1">
-					<div class="scroller" data-height="435px" data-always-visible="1"
+					<div class="scroller" data-height="450px" data-always-visible="1"
 						data-rail-visible="0">
 						<ul class="feeds">
+
 							<li>
 								<div class="col1">
 									<div class="cont">
@@ -354,7 +355,7 @@
 					</div>
 				</div>
 				<div class="tab-pane" id="tab_1_2">
-					<div class="scroller" data-height="435px" data-always-visible="1"
+					<div class="scroller" data-height="450px" data-always-visible="1"
 						data-rail-visible1="1">
 						<ul class="feeds">
 							<li><a href="#">
@@ -536,134 +537,34 @@
 					</div>
 				</div>
 				<div class="tab-pane" id="tab_1_3">
-					<div class="scroller" data-height="435px" data-always-visible="1"
-						data-rail-visible1="1">
-						<div class="row-fluid">
-							<div class="span6 user-info">
-								<img alt="" src="media/image/avatar.png" />
-								<div class="details">
-									<div>
-										<a href="#">Robert Nilson</a> <span
-											class="label label-success">Approved</span>
+					<div class="scroller relative" data-height="450px"
+						data-always-visible="1" data-rail-visible1="1">
+						<c:forEach items="${requestScope.activeUsers }" var="usersRow">
+							<div class="row-fluid">
+								<c:forEach items="${usersRow }" var="user">
+									<div class="span6 user-info">
+										<img alt="" src="<%=staticPath%>/image/avatar.png" />
+										<div class="details">
+											<div>
+												<a href="#">${user.name }</a>
+												<c:choose>
+													<c:when test="${user.user_level eq 1 }">
+														<span class="label label-info">注册用户</span>
+													</c:when>
+													<c:when test="${user.user_level eq 2 }">
+														<span class="label label-success">管理员</span>
+													</c:when>
+													<c:when test="${user.user_level eq 3 }">
+														<span class="label label-important">Author</span>
+													</c:when>
+												</c:choose>
+											</div>
+											<div>${user.logon_time }</div>
+										</div>
 									</div>
-									<div>29 Jan 2013 10:45AM</div>
-								</div>
+								</c:forEach>
 							</div>
-							<div class="span6 user-info">
-								<img alt="" src="media/image/avatar.png" />
-								<div class="details">
-									<div>
-										<a href="#">Lisa Miller</a> <span class="label label-info">Pending</span>
-									</div>
-									<div>19 Jan 2013 10:45AM</div>
-								</div>
-							</div>
-						</div>
-						<div class="row-fluid">
-							<div class="span6 user-info">
-								<img alt="" src="media/image/avatar.png" />
-								<div class="details">
-									<div>
-										<a href="#">Eric Kim</a> <span class="label label-info">Pending</span>
-									</div>
-									<div>19 Jan 2013 12:45PM</div>
-								</div>
-							</div>
-							<div class="span6 user-info">
-								<img alt="" src="media/image/avatar.png" />
-								<div class="details">
-									<div>
-										<a href="#">Lisa Miller</a> <span
-											class="label label-important">In progress</span>
-									</div>
-									<div>19 Jan 2013 11:55PM</div>
-								</div>
-							</div>
-						</div>
-						<div class="row-fluid">
-							<div class="span6 user-info">
-								<img alt="" src="media/image/avatar.png" />
-								<div class="details">
-									<div>
-										<a href="#">Eric Kim</a> <span class="label label-info">Pending</span>
-									</div>
-									<div>19 Jan 2013 12:45PM</div>
-								</div>
-							</div>
-							<div class="span6 user-info">
-								<img alt="" src="media/image/avatar.png" />
-								<div class="details">
-									<div>
-										<a href="#">Lisa Miller</a> <span
-											class="label label-important">In progress</span>
-									</div>
-									<div>19 Jan 2013 11:55PM</div>
-								</div>
-							</div>
-						</div>
-						<div class="row-fluid">
-							<div class="span6 user-info">
-								<img alt="" src="media/image/avatar.png" />
-								<div class="details">
-									<div>
-										<a href="#">Eric Kim</a> <span class="label label-info">Pending</span>
-									</div>
-									<div>19 Jan 2013 12:45PM</div>
-								</div>
-							</div>
-							<div class="span6 user-info">
-								<img alt="" src="media/image/avatar.png" />
-								<div class="details">
-									<div>
-										<a href="#">Lisa Miller</a> <span
-											class="label label-important">In progress</span>
-									</div>
-									<div>19 Jan 2013 11:55PM</div>
-								</div>
-							</div>
-						</div>
-						<div class="row-fluid">
-							<div class="span6 user-info">
-								<img alt="" src="media/image/avatar.png" />
-								<div class="details">
-									<div>
-										<a href="#">Eric Kim</a> <span class="label label-info">Pending</span>
-									</div>
-									<div>19 Jan 2013 12:45PM</div>
-								</div>
-							</div>
-							<div class="span6 user-info">
-								<img alt="" src="media/image/avatar.png" />
-								<div class="details">
-									<div>
-										<a href="#">Lisa Miller</a> <span
-											class="label label-important">In progress</span>
-									</div>
-									<div>19 Jan 2013 11:55PM</div>
-								</div>
-							</div>
-						</div>
-						<div class="row-fluid">
-							<div class="span6 user-info">
-								<img alt="" src="media/image/avatar.png" />
-								<div class="details">
-									<div>
-										<a href="#">Eric Kim</a> <span class="label label-info">Pending</span>
-									</div>
-									<div>19 Jan 2013 12:45PM</div>
-								</div>
-							</div>
-							<div class="span6 user-info">
-								<img alt="" src="media/image/avatar.png" />
-								<div class="details">
-									<div>
-										<a href="#">Lisa Miller</a> <span
-											class="label label-important">In progress</span>
-									</div>
-									<div>19 Jan 2013 11:55PM</div>
-								</div>
-							</div>
-						</div>
+						</c:forEach>
 					</div>
 				</div>
 			</div>
