@@ -120,13 +120,10 @@ public class DiaryServiceImpl implements DiaryService {
 	}
 
 	@Override
-	public Map<String, List<DiaryBO>> getHotDiaries() {
-		List<DiaryBO> diaries = diaryDao.queryDiaryOrderByReadNum(0, 5);
-		Map<String, List<DiaryBO>> result = new HashMap<String, List<DiaryBO>>();
-		result.put("left", diaries);
-		diaries = diaryDao.queryDiaryOrderByReadNum(5, 5);
-		result.put("right", diaries);
-		return result;
+	public List<DiaryBO> getHotDiaries() {
+		List<DiaryBO> diaries = diaryDao.queryDiaryOrderByReadNum(0, 12);
+		 
+		return diaries;
 	}
 
 	@Override
@@ -160,7 +157,7 @@ public class DiaryServiceImpl implements DiaryService {
 
 	@Override
 	public List<DiaryBO> getNewDiaryList() {
-		return diaryDao.queryAllDiaryList(0, 4);
+		return diaryDao.queryAllDiaryList(0, 12);
 	}
 
 	@Override

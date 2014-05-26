@@ -143,7 +143,7 @@ public interface DiaryService {
 	 * 获取热门日志
 	 * @return
 	 */
-	Map<String,List<DiaryBO>> getHotDiaries();
+	List<DiaryBO> getHotDiaries();
 	/**
 	 * 获取指定id的回复
 	 * 

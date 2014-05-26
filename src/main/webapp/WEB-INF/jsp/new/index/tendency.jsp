@@ -1,5 +1,6 @@
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div class="portlet paddingless">
 	<div class="portlet-title line">
 		<div class="caption">
@@ -22,335 +23,32 @@
 					<div class="scroller" data-height="450px" data-always-visible="1"
 						data-rail-visible="0">
 						<ul class="feeds">
-
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-success">
-												<i class="icon-bell"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">
-												You have 4 pending tasks. <span
-													class="label label-important label-mini"> Take
-													action <i class="icon-share-alt"></i>
-												</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">Just now</div>
-								</div>
-							</li>
-							<li><a href="#">
+							<c:forEach items="${latestDiaries }" var="diary">
+								<li>
 									<div class="col1">
 										<div class="cont">
 											<div class="cont-col1">
-												<div class="label label-success">
-													<i class="icon-bell"></i>
+												<div class="label label-info">
+													<i class="icon-book"></i>
 												</div>
 											</div>
 											<div class="cont-col2">
-												<div class="desc">New version v1.4 just lunched!</div>
+												<div class="desc">
+													${diary.title } <span
+														class="label label-success label-mini"> 查看详情 <i
+														class="icon-share-alt"></i>
+													</span>
+												</div>
 											</div>
 										</div>
 									</div>
 									<div class="col2">
-										<div class="date">20 mins</div>
-									</div>
-							</a></li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-important">
-												<i class="icon-bolt"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">Database server #12 overloaded.
-												Please fix the issue.</div>
+										<div class="date">
+											${diary.time_before }
 										</div>
 									</div>
-								</div>
-								<div class="col2">
-									<div class="date">24 mins</div>
-								</div>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-info">
-												<i class="icon-bullhorn"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">New order received. Please take care
-												of it.</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">30 mins</div>
-								</div>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-success">
-												<i class="icon-bullhorn"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">New order received. Please take care
-												of it.</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">40 mins</div>
-								</div>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-warning">
-												<i class="icon-plus"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">New user registered.</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">1.5 hours</div>
-								</div>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-success">
-												<i class="icon-bell-alt"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">
-												Web server hardware needs to be upgraded. <span
-													class="label label-inverse label-mini">Overdue</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">2 hours</div>
-								</div>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label">
-												<i class="icon-bullhorn"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">New order received. Please take care
-												of it.</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">3 hours</div>
-								</div>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-warning">
-												<i class="icon-bullhorn"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">New order received. Please take care
-												of it.</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">5 hours</div>
-								</div>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-info">
-												<i class="icon-bullhorn"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">New order received. Please take care
-												of it.</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">18 hours</div>
-								</div>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label">
-												<i class="icon-bullhorn"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">New order received. Please take care
-												of it.</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">21 hours</div>
-								</div>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-info">
-												<i class="icon-bullhorn"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">New order received. Please take care
-												of it.</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">22 hours</div>
-								</div>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label">
-												<i class="icon-bullhorn"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">New order received. Please take care
-												of it.</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">21 hours</div>
-								</div>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-info">
-												<i class="icon-bullhorn"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">New order received. Please take care
-												of it.</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">22 hours</div>
-								</div>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label">
-												<i class="icon-bullhorn"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">New order received. Please take care
-												of it.</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">21 hours</div>
-								</div>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-info">
-												<i class="icon-bullhorn"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">New order received. Please take care
-												of it.</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">22 hours</div>
-								</div>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label">
-												<i class="icon-bullhorn"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">New order received. Please take care
-												of it.</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">21 hours</div>
-								</div>
-							</li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-info">
-												<i class="icon-bullhorn"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">New order received. Please take care
-												of it.</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">22 hours</div>
-								</div>
-							</li>
+								</li>
+							</c:forEach>
 						</ul>
 					</div>
 				</div>
@@ -358,181 +56,32 @@
 					<div class="scroller" data-height="450px" data-always-visible="1"
 						data-rail-visible1="1">
 						<ul class="feeds">
-							<li><a href="#">
+							<c:forEach items="${hotDiaries }" var="diary">
+								<li>
 									<div class="col1">
 										<div class="cont">
 											<div class="cont-col1">
-												<div class="label label-success">
-													<i class="icon-bell"></i>
+												<div class="label label-important">
+													<i class="icon-book"></i>
 												</div>
 											</div>
 											<div class="cont-col2">
-												<div class="desc">New user registered</div>
+												<div class="desc">
+													${diary.title } <span
+														class="label label-success label-mini"> 查看详情 <i
+														class="icon-share-alt"></i>
+													</span>
+												</div>
 											</div>
 										</div>
 									</div>
 									<div class="col2">
-										<div class="date">Just now</div>
-									</div>
-							</a></li>
-							<li><a href="#">
-									<div class="col1">
-										<div class="cont">
-											<div class="cont-col1">
-												<div class="label label-success">
-													<i class="icon-bell"></i>
-												</div>
-											</div>
-											<div class="cont-col2">
-												<div class="desc">New order received</div>
-											</div>
+										<div class="date">
+											${diary.time_before }
 										</div>
 									</div>
-									<div class="col2">
-										<div class="date">10 mins</div>
-									</div>
-							</a></li>
-							<li>
-								<div class="col1">
-									<div class="cont">
-										<div class="cont-col1">
-											<div class="label label-important">
-												<i class="icon-bolt"></i>
-											</div>
-										</div>
-										<div class="cont-col2">
-											<div class="desc">
-												Order #24DOP4 has been rejected. <span
-													class="label label-important label-mini">Take action
-													<i class="icon-share-alt"></i>
-												</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col2">
-									<div class="date">24 mins</div>
-								</div>
-							</li>
-							<li><a href="#">
-									<div class="col1">
-										<div class="cont">
-											<div class="cont-col1">
-												<div class="label label-success">
-													<i class="icon-bell"></i>
-												</div>
-											</div>
-											<div class="cont-col2">
-												<div class="desc">New user registered</div>
-											</div>
-										</div>
-									</div>
-									<div class="col2">
-										<div class="date">Just now</div>
-									</div>
-							</a></li>
-							<li><a href="#">
-									<div class="col1">
-										<div class="cont">
-											<div class="cont-col1">
-												<div class="label label-success">
-													<i class="icon-bell"></i>
-												</div>
-											</div>
-											<div class="cont-col2">
-												<div class="desc">New user registered</div>
-											</div>
-										</div>
-									</div>
-									<div class="col2">
-										<div class="date">Just now</div>
-									</div>
-							</a></li>
-							<li><a href="#">
-									<div class="col1">
-										<div class="cont">
-											<div class="cont-col1">
-												<div class="label label-success">
-													<i class="icon-bell"></i>
-												</div>
-											</div>
-											<div class="cont-col2">
-												<div class="desc">New user registered</div>
-											</div>
-										</div>
-									</div>
-									<div class="col2">
-										<div class="date">Just now</div>
-									</div>
-							</a></li>
-							<li><a href="#">
-									<div class="col1">
-										<div class="cont">
-											<div class="cont-col1">
-												<div class="label label-success">
-													<i class="icon-bell"></i>
-												</div>
-											</div>
-											<div class="cont-col2">
-												<div class="desc">New user registered</div>
-											</div>
-										</div>
-									</div>
-									<div class="col2">
-										<div class="date">Just now</div>
-									</div>
-							</a></li>
-							<li><a href="#">
-									<div class="col1">
-										<div class="cont">
-											<div class="cont-col1">
-												<div class="label label-success">
-													<i class="icon-bell"></i>
-												</div>
-											</div>
-											<div class="cont-col2">
-												<div class="desc">New user registered</div>
-											</div>
-										</div>
-									</div>
-									<div class="col2">
-										<div class="date">Just now</div>
-									</div>
-							</a></li>
-							<li><a href="#">
-									<div class="col1">
-										<div class="cont">
-											<div class="cont-col1">
-												<div class="label label-success">
-													<i class="icon-bell"></i>
-												</div>
-											</div>
-											<div class="cont-col2">
-												<div class="desc">New user registered</div>
-											</div>
-										</div>
-									</div>
-									<div class="col2">
-										<div class="date">Just now</div>
-									</div>
-							</a></li>
-							<li><a href="#">
-									<div class="col1">
-										<div class="cont">
-											<div class="cont-col1">
-												<div class="label label-success">
-													<i class="icon-bell"></i>
-												</div>
-											</div>
-											<div class="cont-col2">
-												<div class="desc">New user registered</div>
-											</div>
-										</div>
-									</div>
-									<div class="col2">
-										<div class="date">Just now</div>
-									</div>
-							</a></li>
+								</li>
+							</c:forEach>
 						</ul>
 					</div>
 				</div>

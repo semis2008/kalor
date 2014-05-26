@@ -14,6 +14,15 @@ public class DiaryBO{
 	private Long reply_num;
 	private String status;
 	private String author_photo;
+	private String time_before;
+
+	public String getTime_before() {
+		return time_before;
+	}
+
+	public void setTime_before(String time_before) {
+		this.time_before = time_before;
+	}
 	
 	public String getAuthor_photo() {
 		return author_photo;
