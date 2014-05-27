@@ -11,8 +11,6 @@ import java.util.Map;
 import java.util.TimeZone;
 
 import com.wnJava.bo.LoverInfoBO;
-import com.wnJava.vo.LoveRoadVO;
-import com.wnJava.vo.LoverHolidayVO;
 
 /**
  * 日期工具类
@@ -82,56 +80,56 @@ public class DateUtil {
 	 * @param birthday
 	 * @return
 	 */
-	public static List<LoverHolidayVO> getLoveHoliday(LoverInfoBO bo) {
-		List result = new ArrayList<LoverHolidayVO>();
-		Map<String, String> holidayMap = getHolidayMap();
-		int count = 0;
-		for (int i = 1; i < 365; i++) {
-			String afterDay = DateAfterStr(i, "MM/dd");
-			LoverHolidayVO vo = new LoverHolidayVO();
-			if (holidayMap.get(afterDay) != null) {
-				vo.setDaysStr(i + "天后");
-				vo.setHolidayName(holidayMap.get(afterDay));
-				vo.setTip(holidayMap.get(afterDay)+"了，要庆祝下么？");
-				result.add(vo);
-				count++;
-			}else {
-				//获取和恋爱相关的纪念日
-				String birthStr = formatDate(bo.getBirthday(), 4);
-				String meetDayStr = formatDate(bo.getMeetTime(), 4);
-				String loveDayStr = formatDate(bo.getLoveTime(), 4);
-				String marriageDayStr = formatDate(bo.getMarriageTime(), 4);
-				if(afterDay.equals(birthStr)) {
-					vo.setDaysStr(i + "天后");
-					vo.setHolidayName(bo.getName()+"の生日");
-					vo.setTip("是"+bo.getName()+"的生日哦，准备好礼物了么");
-					result.add(vo);
-					count++;
-				}else if(afterDay.equals(meetDayStr)) {
-					vo.setDaysStr(i + "天后");
-					vo.setHolidayName("相识纪念日");
-					vo.setTip("是你们认识的日子哦，想想怎么纪念下~");
-					result.add(vo);
-					count++;
-				}else if(afterDay.equals(loveDayStr)) {
-					vo.setDaysStr(i + "天后");
-					vo.setHolidayName("相爱纪念日");
-					vo.setTip("是你们相爱的日子，还记得那一刻的感受么？");
-					result.add(vo);
-					count++;
-				}else if(afterDay.equals(marriageDayStr)) {
-					vo.setDaysStr(i + "天后");
-					vo.setHolidayName("结婚纪念日");
-					vo.setTip("终于修正正果了，不忘初心，才能始终。");
-					result.add(vo);
-					count++;
-				} 
-			}
-			if (count == 5)
-				break;
-		}
-		return result;
-	}
+//	public static List<LoverHolidayVO> getLoveHoliday(LoverInfoBO bo) {
+//		List result = new ArrayList<LoverHolidayVO>();
+//		Map<String, String> holidayMap = getHolidayMap();
+//		int count = 0;
+//		for (int i = 1; i < 365; i++) {
+//			String afterDay = DateAfterStr(i, "MM/dd");
+//			LoverHolidayVO vo = new LoverHolidayVO();
+//			if (holidayMap.get(afterDay) != null) {
+//				vo.setDaysStr(i + "天后");
+//				vo.setHolidayName(holidayMap.get(afterDay));
+//				vo.setTip(holidayMap.get(afterDay)+"了，要庆祝下么？");
+//				result.add(vo);
+//				count++;
+//			}else {
+//				//获取和恋爱相关的纪念日
+//				String birthStr = formatDate(bo.getBirthday(), 4);
+//				String meetDayStr = formatDate(bo.getMeetTime(), 4);
+//				String loveDayStr = formatDate(bo.getLoveTime(), 4);
+//				String marriageDayStr = formatDate(bo.getMarriageTime(), 4);
+//				if(afterDay.equals(birthStr)) {
+//					vo.setDaysStr(i + "天后");
+//					vo.setHolidayName(bo.getName()+"の生日");
+//					vo.setTip("是"+bo.getName()+"的生日哦，准备好礼物了么");
+//					result.add(vo);
+//					count++;
+//				}else if(afterDay.equals(meetDayStr)) {
+//					vo.setDaysStr(i + "天后");
+//					vo.setHolidayName("相识纪念日");
+//					vo.setTip("是你们认识的日子哦，想想怎么纪念下~");
+//					result.add(vo);
+//					count++;
+//				}else if(afterDay.equals(loveDayStr)) {
+//					vo.setDaysStr(i + "天后");
+//					vo.setHolidayName("相爱纪念日");
+//					vo.setTip("是你们相爱的日子，还记得那一刻的感受么？");
+//					result.add(vo);
+//					count++;
+//				}else if(afterDay.equals(marriageDayStr)) {
+//					vo.setDaysStr(i + "天后");
+//					vo.setHolidayName("结婚纪念日");
+//					vo.setTip("终于修正正果了，不忘初心，才能始终。");
+//					result.add(vo);
+//					count++;
+//				} 
+//			}
+//			if (count == 5)
+//				break;
+//		}
+//		return result;
+//	}
  	
 	/**
 	 * 获取假期Map

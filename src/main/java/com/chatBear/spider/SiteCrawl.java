@@ -14,13 +14,12 @@ import com.chatBear.enums.SiteType;
 import com.chatBear.model.CrawlContent;
 import com.chatBear.model.CrawlPage;
 import com.chatBear.model.CrawlSite;
-import com.wnJava.controller.ChatController;
 import com.wnJava.util.DateUtil;
 import com.wnJava.util.StringUtil;
 import com.wnJava.util.XMLUtil;
 
 public class SiteCrawl {
-	private static Logger logger = Logger.getLogger(ChatController.class);
+	private static Logger logger = Logger.getLogger(SiteCrawl.class);
 
 	/**
 	 * 爬取指定的页面

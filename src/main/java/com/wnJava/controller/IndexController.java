@@ -20,7 +20,7 @@ import com.wnJava.service.DiaryService;
 import com.wnJava.service.UserService;
 import com.wnJava.util.DateUtil;
 import com.wnJava.util.UserUtil;
-import com.wnJava.vo.DiaryVO;
+import com.wnJava.vo.AppInfoVO;
 import com.wnJava.vo.TagVO;
 
 /**
@@ -87,6 +87,13 @@ public class IndexController {
 		List<DiaryBO> diaries = diaryService.getNewDiaryList();
 		// 随机获取推荐日志
 		DiaryBO topDiary = diaryService.getTopDiaryRand();
+		// 获取应用统计信息
+		AppInfoVO infoVO = new AppInfoVO();
+		infoVO.setDiaryCount(diaryService.getTotalDiaryCount());
+		infoVO.setNewsCount(26);
+		infoVO.setSolutionCount(31);
+		infoVO.setUserCount(userService.getUsers().size());
+		
 		// 获取活跃用户
 		List<UserBO> activeUsers = userService.getActiveUsers(16);
 		// 获取热门日志
@@ -117,6 +124,7 @@ public class IndexController {
 			hotDiariesList.add(bo);
 		}
 
+		req.setAttribute("appInfo", infoVO);
 		req.setAttribute("latestDiaries", latestDiaries);
 		req.setAttribute("leaveMsgs", leaveMsgs);
 		req.setAttribute("hotDiaries", hotDiaries);
