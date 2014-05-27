@@ -4,15 +4,12 @@
 	String contextPath = request.getContextPath(); // 工程路径
 	int serverPort = request.getServerPort(); // 服务器端口
 	 
-	String title = "wnJava 网";
-	String description = "测试描述！";
-	String keywords = "java";
-	String version = "?15531350";
-	String imgPath = contextPath + "/static/img";
-	String cssPath = contextPath +"/static/css";
-	String jsPath = contextPath +"/static/js";
-	 
-	String wnJavaVersion = "2.0";
+	String title = "Kalor | 快速 尖锐 不凡";
+	String description = "特殊的社区网站。";
+	String author = "懒熊";
+	String keywords = "社区 java lucence 快速开发 bootstrap";
+	String version = "?10000";
+	String staticPath = contextPath + "/media";
 	String ICP_BEIAN = "京ICP备13011487号";
 %>
 <!DOCTYPE html>

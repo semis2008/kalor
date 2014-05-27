@@ -15,6 +15,7 @@ import com.chatBear.model.CrawlContent;
 import com.chatBear.model.CrawlPage;
 import com.chatBear.model.CrawlSite;
 import com.wnJava.util.DateUtil;
+import com.wnJava.util.EscapedHtmlUtil;
 import com.wnJava.util.StringUtil;
 import com.wnJava.util.XMLUtil;
 
@@ -200,7 +201,7 @@ public class SiteCrawl {
 				// 1.过滤掉html元素
 				// 2.内容过短和过长的去掉
 				// 3.过滤掉空白
-				resultContent = StringUtil.Html2Text(resultContent).trim();
+				resultContent = EscapedHtmlUtil.escapeStr(resultContent).trim();
 				if (resultContent.length() < 30 || resultContent.length() > 120) {
 					continue;
 				}

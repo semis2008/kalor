@@ -13,7 +13,6 @@ import com.wnJava.bo.UserBO;
 import com.wnJava.bo.UserInfoBO;
 import com.wnJava.dao.UserDao;
 import com.wnJava.dao.template.DbUtilsTemplate;
-import com.wnJava.util.ConstantsUtil;
 
 /**
  * 用户数据操作接口实现类
@@ -25,13 +24,6 @@ import com.wnJava.util.ConstantsUtil;
 public class UserDaoImpl implements UserDao {
 	@Resource
 	private DbUtilsTemplate dbUtilsTemplate;
-
-	@Override
-	public int insertUser(String email, String name, String pass) {
-		String sql = "insert into user (email,name,password,reg_time,photo,user_level) values (?,?,?,now(),?,1)";
-		Object[] param = { email, name, pass, ConstantsUtil.DEFAULT_HEAD_PHOTO};
-		return dbUtilsTemplate.update(sql, param);
-	}
 
 	@Override
 	public UserBO queryUserByEmail(String email) {

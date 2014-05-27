@@ -16,7 +16,7 @@
 			</div>
 		</form> <!-- END RESPONSIVE QUICK SEARCH FORM -->
 	</li>
-	<li class="start active "><a href="index"> <i
+	<li class="start active "><a href="<%=contextPath%>/index"> <i
 			class="icon-home"></i> <span class="title">首页</span> <span
 			class="selected"></span>
 	</a></li>
@@ -35,14 +35,14 @@
 		<ul class="sub-menu">
 			<li><a href="#"> 编程语言<span class="arrow"></span></a>
 				<ul class="sub-menu">
-					<li><a href="#">Java</a></li>
-					<li><a href="#">C/C++</a></li>
-					<li><a href="#">Python</a></li>
+					<li><a href="<%=contextPath%>/blog/java">Java</a></li>
+					<li><a href="<%=contextPath%>/blog/java">C/C++</a></li>
+					<li><a href="<%=contextPath%>/blog/java">Python</a></li>
 				</ul></li>
 			<li><a href="#"> 搜索技术<span class="arrow"></span></a>
 				<ul class="sub-menu">
-					<li><a href="#">Lucence</a></li>
-					<li><a href="#">IK</a></li>
+					<li><a href="<%=contextPath%>/blog/java">Lucence</a></li>
+					<li><a href="<%=contextPath%>/blog/java">IK</a></li>
 					<li><a href="#">Solr</a></li>
 				</ul></li>
 			<li><a href="#"> 数据库<span class="arrow"></span></a>
@@ -65,11 +65,15 @@
 				</ul></li>
 			<li><a href="#"> 其他</a></li>
 		</ul></li>
-	<li><a href="#"> <i class="icon-time"></i> 时间线
-	</a></li>
-	<li><a href="#"> <i class="icon-cogs"></i> 即将开发
-	</a></li>
-	 	<li><a href="page_blog.html"> <i class="icon-comments"></i>
+	<li class=""><a href="javascript:;"> <i class="icon-briefcase"></i>
+			<span class="title">关于Kalor</span> <span class="arrow "></span>
+	</a>
+		<ul class="sub-menu">
+			<li><a href="#"> <i class="icon-time"></i> 时间线
+			</a></li>
+			<li><a href="#"> <i class="icon-cogs"></i> 即将开发
+			</a></li>
+			<li><a href="page_blog.html"> <i class="icon-comments"></i>
 					开发日志
 			</a></li>
 			<li><a href="page_about.html"> <i class="icon-group"></i>
@@ -78,6 +82,7 @@
 			<li><a href="page_contact.html"> <i
 					class="icon-envelope-alt"></i> 联系我
 			</a></li>
+		</ul></li>
 	<li class=""><a href="javascript:;"> <i
 			class="icon-map-marker"></i> <span class="title">网站地图</span></a></li>
 </ul>

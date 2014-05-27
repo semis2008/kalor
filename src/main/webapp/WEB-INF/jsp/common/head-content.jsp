@@ -1,26 +1,37 @@
-<%@ page pageEncoding="utf-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ page pageEncoding="utf-8"%>
 
-<meta charset="utf-8" />
-<title><%=title%></title>
-<meta name="description" content="<%=description%>" />
-<meta name="keywords" content="<%=keywords%>" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" /> <%-- Prevent IE7/8 into quirks mode --%>
+<title><%=title %></title>
+<meta content="<%=description %>" name="description" />
 
-<link type="text/css" rel="stylesheet" href="<%=cssPath %>/lib/bootstrap.css<%=version%>" />
-<link type="text/css" rel="stylesheet" href="<%=cssPath %>/lib/bootstrap-responsive.css<%=version%>" />
-<link type="text/css" rel="stylesheet" href="<%=cssPath %>/lib/font-awesome.min.css<%=version%>" />
+<meta content="<%=author %>" name="author" />
 
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<link href="<%=staticPath %>/css/bootstrap.min.css<%=version %>" rel="stylesheet"
+	type="text/css" />
+<link href="<%=staticPath %>/css/bootstrap-responsive.min.css<%=version %>" rel="stylesheet"
+	type="text/css" />
+<link href="<%=staticPath %>/css/font-awesome.min.css<%=version %>" rel="stylesheet"
+	type="text/css" />
+<link href="<%=staticPath %>/css/style-metro.css<%=version %>" rel="stylesheet" type="text/css" />
+<link href="<%=staticPath %>/css/style.css<%=version %>" rel="stylesheet" type="text/css" />
+<link href="<%=staticPath %>/css/style-responsive.css<%=version %>" rel="stylesheet"
+	type="text/css" />
+<link href="<%=staticPath %>/css/default.css<%=version %>" rel="stylesheet" type="text/css"
+	id="style_color" />
+<link href="<%=staticPath %>/css/uniform.default.css<%=version %>" rel="stylesheet"
+	type="text/css" />
+<!-- END GLOBAL MANDATORY STYLES -->
 
-<script type="text/javascript" src="<%=jsPath%>/jquery-1.8.2.js<%=version%>"></script>
-<script type="text/javascript" src="<%=jsPath%>/lib/bootstrap.js<%=version%>"></script>
-<script type="text/javascript" src="<%=jsPath%>/lib/require-jquery.js<%=version%>"></script>
-<script type="text/javascript" src="<%=jsPath %>/jquery.scrollLoading.js<%=version%>"></script>
-<script type="text/javascript" src="<%=jsPath %>/common.js<%=version%>"></script>
-<script type="text/javascript">
-	$(function() {
-	    $(".scrollLoading").scrollLoading();
-    });
-</script>
-<!--[if lt IE 9]> <script src="<%=jsPath%>/lib/shiv/html5.js"></script> <![endif]-->
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link href="<%=staticPath %>/css/jquery.gritter.css<%=version %>" rel="stylesheet"
+	type="text/css" />
+<link href="<%=staticPath %>/css/daterangepicker.css<%=version %>" rel="stylesheet"
+	type="text/css" />
+<link href="<%=staticPath %>/css/fullcalendar.css<%=version %>" rel="stylesheet" type="text/css" />
+<link href="<%=staticPath %>/css/jqvmap.css<%=version %>" rel="stylesheet" type="text/css"
+	<%=staticPath %>="screen" />
+<link href="<%=staticPath %>/css/jquery.easy-pie-chart.css<%=version %>" rel="stylesheet"
+	type="text/css" <%=staticPath %>="screen" />
+<!-- END PAGE LEVEL STYLES -->
 
+<link rel="shortcut icon" href="<%=staticPath %>/image/kalor.ico" />

@@ -2,6 +2,8 @@ package com.wnJava.bo;
 
 import java.util.Date;
 
+import com.wnJava.util.DateUtil;
+
 public class DiaryBO{
 	private Long id;
 	private String title;
@@ -17,7 +19,7 @@ public class DiaryBO{
 	private String time_before;
 
 	public String getTime_before() {
-		return time_before;
+		return DateUtil.getPassedTime(publish_time);
 	}
 
 	public void setTime_before(String time_before) {

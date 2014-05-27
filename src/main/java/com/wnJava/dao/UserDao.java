@@ -14,20 +14,6 @@ import com.wnJava.bo.UserInfoBO;
  */
 public interface UserDao {
 
-
-	/**
-	 * 新增用户
-	 * 
-	 * @param email
-	 *            注册邮箱
-	 * @param name
-	 *            昵称
-	 * @param pass
-	 *            密码
-	 * @return 受影响行数
-	 */
-	int insertUser(String email, String name, String pass);
-
 	/**
 	 * 依据注册邮箱查询用户
 	 * 

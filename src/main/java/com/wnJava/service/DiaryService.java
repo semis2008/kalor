@@ -17,95 +17,14 @@ import com.wnJava.bo.DiaryReplyBO;
  */
 public interface DiaryService {
 
-	/**
-	 * 发布日志
-	 * 
-	 * @param req
-	 * @param resp
-	 * @return
-	 */
-	String newDiary(HttpServletRequest req, HttpServletResponse resp);
-
-	/**
-	 * 删除日志
-	 * 
-	 * @param req
-	 * @param resp
-	 * @return
-	 */
-	int deleteDiary(HttpServletRequest req, HttpServletResponse resp);
-
-	/**
-	 * 编辑日志
-	 * 
-	 * @param req
-	 * @param resp
-	 * @return
-	 */
-	String editDiary(HttpServletRequest req, HttpServletResponse resp);
-
-	/**
-	 * 登录用户发表回复
-	 * 
-	 * @param req
-	 * @param resp
-	 * @return
-	 */
-	int newUserReply(HttpServletRequest req, HttpServletResponse resp);
-
-	/**
-	 * 游客发表回复
-	 * 
-	 * @param req
-	 * @param resp
-	 * @return
-	 */
-	int newGuestReply(HttpServletRequest req, HttpServletResponse resp);
-
-	/**
-	 * 获取指定用户的日志列表
-	 * 
-	 * @param req
-	 * @param resp
-	 * @return 日志列表
-	 */
-	List<DiaryBO> getUserDiaryList(HttpServletRequest req,
-			HttpServletResponse resp);
-
-	/**
-	 * 获取系统所有的日志列表
-	 * 
-	 * @param req
-	 * @param resp
-	 * @return 日志列表
-	 */
-	List<DiaryBO> getAllDiaryList(HttpServletRequest req,
-			HttpServletResponse resp);
-
-	/**
-	 * 获取访问用户的最新日志列表 (取前5条)
-	 * 
-	 * @param req
-	 * @param resp
-	 * @return
-	 */
-	List<DiaryBO> getUserNewDiaryList(HttpServletRequest req,
-			HttpServletResponse resp);
-
-	/**
-	 * 获取用户的日志数目
-	 * 
-	 * @param userid
-	 * @return
-	 */
-	String getUserDiaryNum(String userid);
-
+	List<DiaryBO> getDiaryListByCategory(String category,int start,int end);
+	
 	/**
 	 * 获取最新日志列表 (取前4条)
 	 * 
 	 * @return
 	 */
-	List<DiaryBO> getNewDiaryList();
+	List<DiaryBO> getNewDiaryList(int num);
 
 	/**
 	 * 通过日志id获取日志信息
@@ -116,20 +35,6 @@ public interface DiaryService {
 	 */
 	DiaryBO getDiaryByID(String diaryId);
 
-	/**
-	 * 依据状态获取日志
-	 * @param status
-	 * @return
-	 */
-	DiaryBO getTopDiaryRand();
-	
-	/**
-	 * 获取除指定id之外的随机推荐日志
-	 * @param id
-	 * @return
-	 */
-	DiaryBO getTopDiaryExcept(String id);
-	
 	/**
 	 * 获取指定日志的所有回复
 	 * 
@@ -143,7 +48,8 @@ public interface DiaryService {
 	 * 获取热门日志
 	 * @return
 	 */
-	List<DiaryBO> getHotDiaries();
+	List<DiaryBO> getHotDiaries(int num);
+	
 	/**
 	 * 获取指定id的回复
 	 * 
