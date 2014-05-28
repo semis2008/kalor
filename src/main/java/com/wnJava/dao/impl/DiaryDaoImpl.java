@@ -109,7 +109,7 @@ public class DiaryDaoImpl implements DiaryDao {
 
 	@Override
 	public List<DiaryReplyBO> queryDiaryReplyListById(Long diaryid) {
-		String sql =  "select * from diary_reply where diary_id=?";
+		String sql =  "select * from diary_reply where diary_id=? order by parent_id asc";
 		return dbUtilsTemplate.find(DiaryReplyBO.class, sql, diaryid);
 	}
 
