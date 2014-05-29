@@ -1,6 +1,8 @@
 package com.wnJava.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +17,7 @@ import com.wnJava.bo.DiaryReplyBO;
 import com.wnJava.bo.UserBO;
 import com.wnJava.dao.DiaryDao;
 import com.wnJava.service.DiaryService;
+import com.wnJava.util.StringUtil;
 
 /**
  * 日志业务处理接口实现类
@@ -71,6 +74,21 @@ public class DiaryServiceImpl implements DiaryService {
 	@Override
 	public List<DiaryBO> getDiaryListByCategory(String category, int start, int end) {
 		return diaryDao.queryAllDiaryList(start, end);
+	}
+
+
+	@Override
+	public List<String> getAllTags() {
+		List<String> tagStrs = diaryDao.queryAllTags();
+		List<String> tags = new ArrayList<String>();
+		for(String tagStr:tagStrs) {
+			String[] tagArr = tagStr.split("_") ;
+			for(String tag:tagArr) {
+				if(!tag.equals(""))
+					tags.add(tag);
+			} 
+		}
+		return StringUtil.removeDuplicate(tags);
 	}
 
 }

@@ -196,4 +196,13 @@ public interface DiaryDao {
 	 * @return
 	 */
 	DiaryReplyBO queryDiaryReplyById(Long id);
+	
+	/**
+	 * 
+	  * 获取所有的tag
+	  *
+	  * @autor: wn  2014-5-29 下午3:33:59
+	  * @return
+	 */
+	List<String> queryAllTags();
 }

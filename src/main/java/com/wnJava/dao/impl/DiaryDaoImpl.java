@@ -1,5 +1,6 @@
 package com.wnJava.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -144,5 +145,17 @@ public class DiaryDaoImpl implements DiaryDao {
 		String sql = "select * from diary where status != 'delete' order by read_num desc limit ?,?";
 		Object[] param = {start,end};
 		return dbUtilsTemplate.find(DiaryBO.class, sql, param);
+	}
+
+	@Override
+	public List<String> queryAllTags() {
+		String sql = "select tags from diary where status != 'delete'";
+		List<Map<String,Object>> result = dbUtilsTemplate.find(sql);
+		List<String> resultList = new ArrayList<String>();
+		for(Map<String,Object> res:result) {
+			String tag = (String) res.get("tags");
+			resultList.add(tag);
+		}
+		return resultList; 
 	}
 }

@@ -46,121 +46,40 @@
 				</div>
 				<hr>
 				<h2>评论</h2>
-				<div id="replyDiv">
+				<c:forEach items="${replyList }" var="reply">
 					<div class="media">
-					<a href="#" class="pull-left"> <img alt=""
-						src="media/image/9.jpg" class="media-object">
-					</a>
-					<div class="media-body">
-						<h4 class="media-heading">
-							Media heading <span>5 hours ago / <a href="#">Reply</a></span>
-						</h4>
-						<p>Donec id elit non mi porta gravida at eget metus. Fusce
-							dapibus, tellus ac cursus commodo, tortor mauris condimentum
-							nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
-							malesuada magna mollis euismod. Donec sed odio dui.</p>
-						<hr>
-						<!-- Nested media object -->
-						<div class="media">
-							<a href="#" class="pull-left"> <img alt=""
-								src="media/image/5.jpg" class="media-object">
-							</a>
-							<div class="media-body">
-								<h4 class="media-heading">
-									Media heading <span>17 hours ago / <a href="#">Reply</a></span>
-								</h4>
-								<p>Donec id elit non mi porta gravida at eget metus. Fusce
-									dapibus, tellus ac cursus commodo, tortor mauris condimentum
-									nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
-									malesuada magna mollis euismod. Donec sed odio dui.</p>
-									<hr/>
-									<div class="media">
-							<a href="#" class="pull-left"> <img alt=""
-								src="media/image/5.jpg" class="media-object">
-							</a>
-							<div class="media-body">
-								<h4 class="media-heading">
-									Media heading <span>17 hours ago / <a href="#">Reply</a></span>
-								</h4>
-								<p>Donec id elit non mi porta gravida at eget metus. Fusce
-									dapibus, tellus ac cursus commodo, tortor mauris condimentum
-									nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
-									malesuada magna mollis euismod. Donec sed odio dui.</p>
-							</div>
+						<a href="#" class="pull-left"> <img alt=""
+							src="<%=staticPath%>/image/9.jpg" class="media-object">
+						</a>
+						<div class="media-body">
+							<h4 class="media-heading">
+								${reply.user_name }
+								<c:if test="${reply.parent_id != 0 }">
+									<small>回复</small>	${reply.parent_name }
+								</c:if>
+								<span>${reply.reply_time } <a href="#">Reply</a></span>
+							</h4>
+							<p>${reply.reply }</p>
+							<hr>
 						</div>
-							</div>
-						</div>
-						<!--end media-->
-						<hr>
-						<div class="media">
-							<a href="#" class="pull-left"> <img alt=""
-								src="media/image/7.jpg" class="media-object">
-							</a>
-							<div class="media-body">
-								<h4 class="media-heading">
-									Media heading <span>2 days ago / <a href="#">Reply</a></span>
-								</h4>
-								<p>Donec id elit non mi porta gravida at eget metus. Fusce
-									dapibus, tellus ac cursus commodo, tortor mauris condimentum
-									nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
-									malesuada magna mollis euismod. Donec sed odio dui.</p>
-							</div>
-						</div>
-						<!--end media-->
 					</div>
-				</div>
-				<!--end media-->
-				<div class="media">
-					<a href="#" class="pull-left"> <img alt=""
-						src="media/image/6.jpg" class="media-object">
-					</a>
-					<div class="media-body">
-						<h4 class="media-heading">
-							Media heading <span>July 5,2013 / <a href="#">Reply</a></span>
-						</h4>
-						<p>Donec id elit non mi porta gravida at eget metus. Fusce
-							dapibus, tellus ac cursus commodo, tortor mauris condimentum
-							nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
-							malesuada magna mollis euismod. Donec sed odio dui.</p>
-					</div>
-				</div>
-				<!--end media-->	
-				</div>
+				</c:forEach>
 				<hr>
 				<div class="post-comment">
-					<h3>Leave a Comment</h3>
+					<h3>发表评论</h3>
 					<form>
 						<label>Name</label> <input type="text" class="span7 m-wrap">
 						<label>Email <span class="color-red">*</span></label> <input
 							type="text" class="span7 m-wrap"> <label>Message</label>
 						<textarea class="span10 m-wrap" rows="8"></textarea>
 						<p>
-							<button class="btn blue" type="submit">Post a Comment</button>
+							<button class="btn blue" type="submit">评论</button>
 						</p>
 					</form>
 				</div>
 			</div>
 			<!--end span9-->
 			<div class="span3 blog-sidebar">
-				<h2>谁看过</h2>
-				<ul class="unstyled blog-images">
-					<li><a class="fancybox-button" data-rel="fancybox-button"
-						title="390 x 220 - keenthemes.com" href="media/image/1.jpg"> <img
-							alt="" src="media/image/1.jpg">
-					</a></li>
-					<li><a href="#"><img alt="" src="media/image/2.jpg"></a></li>
-					<li><a href="#"><img alt="" src="media/image/3.jpg"></a></li>
-					<li><a href="#"><img alt="" src="media/image/4.jpg"></a></li>
-					<li><a href="#"><img alt="" src="media/image/5.jpg"></a></li>
-					<li><a href="#"><img alt="" src="media/image/6.jpg"></a></li>
-					<li><a href="#"><img alt="" src="media/image/8.jpg"></a></li>
-					<li><a href="#"><img alt="" src="media/image/10.jpg"></a></li>
-					<li><a href="#"><img alt="" src="media/image/11.jpg"></a></li>
-					<li><a href="#"><img alt="" src="media/image/1.jpg"></a></li>
-					<li><a href="#"><img alt="" src="media/image/2.jpg"></a></li>
-					<li><a href="#"><img alt="" src="media/image/7.jpg"></a></li>
-				</ul>
-				<div class="space20"></div>
 				<h2>热门</h2>
 				<div class="top-news">
 					<c:forEach items="${hotDiaries }" var="diary" varStatus="status">
@@ -202,11 +121,30 @@
 					</c:forEach>
 				</div>
 				<div class="space20"></div>
-				<h2>Blog Tags</h2>
+				<h2>相关Blog</h2>
+				<ul class="unstyled blog-images">
+					<li><a class="fancybox-button" data-rel="fancybox-button"
+						title="390 x 220 - keenthemes.com" href="media/image/1.jpg"> <img
+							alt="" src="media/image/1.jpg">
+					</a></li>
+					<li><a href="#"><img alt="" src="media/image/2.jpg"></a></li>
+					<li><a href="#"><img alt="" src="media/image/3.jpg"></a></li>
+					<li><a href="#"><img alt="" src="media/image/4.jpg"></a></li>
+					<li><a href="#"><img alt="" src="media/image/5.jpg"></a></li>
+					<li><a href="#"><img alt="" src="media/image/6.jpg"></a></li>
+					<li><a href="#"><img alt="" src="media/image/8.jpg"></a></li>
+					<li><a href="#"><img alt="" src="media/image/10.jpg"></a></li>
+					<li><a href="#"><img alt="" src="media/image/11.jpg"></a></li>
+					<li><a href="#"><img alt="" src="media/image/1.jpg"></a></li>
+					<li><a href="#"><img alt="" src="media/image/2.jpg"></a></li>
+					<li><a href="#"><img alt="" src="media/image/7.jpg"></a></li>
+				</ul>
+				<div class="space20"></div>
+				<h2>全部标签</h2>
 				<ul class="unstyled inline sidebar-tags">
-					<c:forTokens var="tag" items="${diary.tags }" delims="_">
+					<c:forEach items="${tags }" var="tag">
 						<li><a href="#"><i class="icon-tags"></i> ${tag }</a></li>
-					</c:forTokens>
+					</c:forEach>
 				</ul>
 				<div class="space20"></div>
 			</div>

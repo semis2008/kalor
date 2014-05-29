@@ -24,19 +24,14 @@
 	<script src="<%=staticPath %>/js/excanvas.min.js<%=version %>"></script>
 	<script src="<%=staticPath %>/js/respond.min.js<%=version %>"></script>  
 	<![endif]-->
+	
 <script src="<%=staticPath %>/js/jquery.slimscroll.min.js<%=version %>" type="text/javascript"></script>
 <script src="<%=staticPath %>/js/jquery.blockui.min.js<%=version %>" type="text/javascript"></script>
 <script src="<%=staticPath %>/js/jquery.cookie.min.js<%=version %>" type="text/javascript"></script>
 <script src="<%=staticPath %>/js/jquery.uniform.min.js<%=version %>" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
+
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<script src="<%=staticPath %>/js/jquery.vmap.js<%=version %>" type="text/javascript"></script>
-<script src="<%=staticPath %>/js/jquery.vmap.russia.js<%=version %>" type="text/javascript"></script>
-<script src="<%=staticPath %>/js/jquery.vmap.world.js<%=version %>" type="text/javascript"></script>
-<script src="<%=staticPath %>/js/jquery.vmap.europe.js<%=version %>" type="text/javascript"></script>
-<script src="<%=staticPath %>/js/jquery.vmap.germany.js<%=version %>" type="text/javascript"></script>
-<script src="<%=staticPath %>/js/jquery.vmap.usa.js<%=version %>" type="text/javascript"></script>
-<script src="<%=staticPath %>/js/jquery.vmap.sampledata.js<%=version %>" type="text/javascript"></script>
 <script src="<%=staticPath %>/js/jquery.flot.js<%=version %>" type="text/javascript"></script>
 <script src="<%=staticPath %>/js/jquery.flot.resize.js<%=version %>" type="text/javascript"></script>
 <script src="<%=staticPath %>/js/jquery.pulsate.min.js<%=version %>" type="text/javascript"></script>
@@ -48,6 +43,10 @@
 <script src="<%=staticPath %>/js/jquery.sparkline.min.js<%=version %>" type="text/javascript"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 
+<!-- JS TEMPLATES -->
+<script src="<%=staticPath %>/js/kalor/jsViews.js<%=version %>" type="text/javascript"></script>
+<!-- END JS TEMPLATES -->
+
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="<%=staticPath %>/js/app.js<%=version %>" type="text/javascript"></script>
 <script src="<%=staticPath %>/js/index.js<%=version %>" type="text/javascript"></script>
@@ -57,7 +56,6 @@
 	jQuery(document).ready(function() {
 	    App.init(); // initlayout and core plugins
 	    Index.init();
-	    Index.initJQVMAP(); // init index page's custom scripts
 	    Index.initCalendar(); // init index page's custom scripts
 	    Index.initCharts(); // init index page's custom scripts
 	    Index.initChat();

@@ -73,5 +73,14 @@ public interface DiaryService {
 	 * @return
 	 */
 	int getTotalDiaryCount();
+	
+	/**
+	 * 
+	  * 获取所有的tag
+	  *
+	  * @autor: wn  2014-5-29 下午3:30:35
+	  * @return
+	 */
+	List<String> getAllTags();
 
 }

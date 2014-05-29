@@ -133,52 +133,6 @@
 					<li><a href="#"><img alt=""
 							src="<%=staticPath%>/image/7.jpg"></a></li>
 				</ul>
-				<div class="space20"></div>
-				<h2>最新回复</h2>
-				<div class="blog-twitter">
-					<div class="blog-twitter-block">
-						<a href="">@keenthemes</a>
-						<p>At vero eos et accusamus et iusto odio.</p>
-						<a href="#"><em>http://t.co/sBav7dm</em></a> <span>2 hours
-							ago</span> <i class="icon-twitter blog-twiiter-icon"></i>
-					</div>
-					<div class="blog-twitter-block">
-						<a href="">@keenthemes</a>
-						<p>At vero eos et accusamus et iusto odio.</p>
-						<a href="#"><em>http://t.co/sBav7dm</em></a> <span>2 hours
-							ago</span> <i class="icon-twitter blog-twiiter-icon"></i>
-					</div>
-					<div class="blog-twitter-block">
-						<a href="">@keenthemes</a>
-						<p>At vero eos et accusamus et iusto odio.</p>
-						<a href="#"><em>http://t.co/sBav7dm</em></a> <span>2 hours
-							ago</span> <i class="icon-twitter blog-twiiter-icon"></i>
-					</div>
-					<div class="blog-twitter-block">
-						<a href="">@keenthemes</a>
-						<p>At vero eos et accusamus et iusto odio.</p>
-						<a href="#"><em>http://t.co/sBav7dm</em></a> <span>2 hours
-							ago</span> <i class="icon-twitter blog-twiiter-icon"></i>
-					</div>
-					<div class="blog-twitter-block">
-						<a href="">@keenthemes</a>
-						<p>At vero eos et accusamus et iusto odio.</p>
-						<a href="#"><em>http://t.co/sBav7dm</em></a> <span>2 hours
-							ago</span> <i class="icon-twitter blog-twiiter-icon"></i>
-					</div>
-					<div class="blog-twitter-block">
-						<a href="">@keenthemes</a>
-						<p>At vero eos et accusamus et iusto odio.</p>
-						<a href="#"><em>http://t.co/sBav7dm</em></a> <span>5 hours
-							ago</span> <i class="icon-twitter blog-twiiter-icon"></i>
-					</div>
-					<div class="blog-twitter-block">
-						<a href="">@keenthemes</a>
-						<p>At vero eos et accusamus et iusto odio.</p>
-						<a href="#"><em>http://t.co/sBav7dm</em></a> <span>7 hours
-							ago</span> <i class="icon-twitter blog-twiiter-icon"></i>
-					</div>
-				</div>
 			</div>
 			<!--end span3-->
 		</div>

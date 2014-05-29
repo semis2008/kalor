@@ -76,29 +76,16 @@ public class BlogController {
 	private ModelAndView showDetail(HttpServletRequest req, HttpServletResponse resp, @PathVariable String category, @PathVariable String id) throws Exception {
 		DiaryBO  diary = diaryService.getDiaryByID(id);
 		List<DiaryBO> hotDiaries = diaryService.getHotDiaries(5);
+		List<DiaryReplyBO> replyList = diaryService.getDiaryReplyListById(id);
+		List<String> tags = diaryService.getAllTags();
+		
+		
 		req.setAttribute("diary", diary);
 		req.setAttribute("hotDiaries", hotDiaries);
 		req.setAttribute("category", category);
+		req.setAttribute("replyList", replyList);
+		req.setAttribute("tags", tags);
 		return new ModelAndView("blog/detail");
 	}
 	
-	@RequestMapping(value="/reply/{id}")
-	private void getDairyReply(HttpServletRequest req, HttpServletResponse resp, @PathVariable String id){
-		List<DiaryReplyBO> replyList = diaryService.getDiaryReplyListById(id);
-		
-		PrintWriter out;
-		Gson gson = new Gson();
-		try {
-			resp.setContentType("text/plain;charset=utf-8");
-			out = resp.getWriter();
-			Map<String,Object> resultMap = new HashMap<String, Object>();
-			resultMap.put("success", Boolean.TRUE);
-			resultMap.put("replyList", replyList);
-			out.print(gson.toJson(resultMap));
-			out.flush();
-			out.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 }

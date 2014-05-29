@@ -1,5 +1,7 @@
 package com.wnJava.util;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,8 +25,8 @@ public class StringUtil {
 		password = temp + "asdasd";
 		return EncryptUtil.Encrypt(password, null);
 	}
-	
-	/**
+
+/**
 	 * 
 	  * 过滤Str中全部的html标签及内容,
 	  *
@@ -40,7 +42,7 @@ public class StringUtil {
 		tarStr = StringEscapeUtils.unescapeHtml(m.replaceAll(""));
 		return tarStr;
 	}
-	
+
 	public static boolean isNull(String str) {
 		return (str == null) || (str.trim().length() == 0);
 	}
@@ -141,7 +143,7 @@ public class StringUtil {
 		} else
 			return false;
 	}
-	
+
 	public static boolean isNumeric(String str) {
 		if (isNull(str))
 			return false;
@@ -169,5 +171,19 @@ public class StringUtil {
 			return true;
 		} else
 			return false;
+	}
+
+	/**
+	 * 去掉list中重复元素
+	 * 
+	 * @autor: wn 2014-5-29 下午3:46:13
+	 * @param list
+	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public static List removeDuplicate(List list) {
+		HashSet h = new HashSet(list);
+		list.clear();
+		list.addAll(h);
+		return list;
 	}
 }

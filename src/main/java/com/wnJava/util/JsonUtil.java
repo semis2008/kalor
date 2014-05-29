@@ -3,12 +3,10 @@ package com.wnJava.util;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
 import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
 import java.nio.channels.WritableByteChannel;
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
@@ -24,6 +22,7 @@ import com.google.gson.Gson;
  */
 public class JsonUtil {
 	private static Gson gson = new Gson();
+	public static final boolean KEEPALIVE = true;
 	
 	public static String dtoToJSON(Object dto) {
 		return gson.toJson(dto);
@@ -203,36 +202,7 @@ public class JsonUtil {
 		}
 	}
 
-	public static void outputExceptionToJSON(Throwable e, HttpServletResponse response) {
-		/**
-		 * 安全隐私协议
-		 */
-		addP3P(response);
-		response.setContentType("text/plain;charset=utf-8");
-		JSONRPCResult json_res = null;
-		SerializerState state = new SerializerState();
-		if (e instanceof InvocationTargetException)
-			e = ((InvocationTargetException) e).getTargetException();
-		json_res = new JSONRPCResult(JSONRPCResult.CODE_REMOTE_EXCEPTION, 1, e);
-		byte[] bout = null;
-		try {
-			bout = json_res.toString().getBytes("UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			e1.printStackTrace();
-		}
-		boolean keepalive = true;
-		if (keepalive) {
-			response.setIntHeader("Content-Length", bout.length);
-		}
-		try {
-			OutputStream out = response.getOutputStream();
-			out.write(bout);
-			out.flush();
-			out.close();
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		}
-	}
+	 
 
 	public static String marshalMetaData(Map map) {
 		StringBuffer sb = new StringBuffer("{");
@@ -292,190 +262,7 @@ public class JsonUtil {
 		// s = s.replaceAll("\\}", "\\\\}");
 		return s;
 	}
-
-	public static void outputOperationResultAsJSON(boolean isSuccess, String message, HttpServletResponse response) {
-		outputOperationResultAsJSON(isSuccess, message, null, response);
-	}
-
-	public static void outputOperationResultAsJSON(boolean isSuccess, String message, Map<String, Object> metaData, HttpServletResponse response) {
-		/**
-		 * 安全隐私协议
-		 */
-		addP3P(response);
-		response.setContentType("text/plain;charset=utf-8");
-		JSONObject jsonObject = new JSONObject();
-		try {
-			jsonObject.put("success", isSuccess);
-		} catch (JSONException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		if (message != null)
-			try {
-				jsonObject.put("message", message);
-			} catch (JSONException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		if (metaData != null) {
-			for (Object key : metaData.keySet()) {
-				Object value = metaData.get(key);
-				try {
-					jsonObject.put(key.toString(), value);
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
-		try {
-			OutputStream out = response.getOutputStream();
-			out.write(jsonObject.toString().getBytes("UTF-8"));
-			out.flush();
-			out.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * Upload client can not recieve contentType with "text/plain"
-	 * 
-	 * @param isSuccess
-	 * @param message
-	 * @param response
-	 * @throws JSONException
-	 */
-	public static void outputOperationResultAsJSONSpecialForForm(boolean isSuccess, String message, Map<String, Object> metaData, HttpServletResponse response) {
-		/**
-		 * 安全隐私协议
-		 */
-		addP3P(response);
-		response.setContentType("text/html");
-		JSONObject jsonObject = new JSONObject();
-		try {
-			jsonObject.put("success", isSuccess);
-		} catch (JSONException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		if (message != null)
-			try {
-				jsonObject.put("message", message);
-			} catch (JSONException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		if (metaData != null)
-			for (Object key : metaData.keySet()) {
-				Object value = metaData.get(key);
-				try {
-					jsonObject.put(key.toString(), value);
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		try {
-			OutputStream out = response.getOutputStream();
-			out.write(jsonObject.toString().getBytes("UTF-8"));
-			out.flush();
-			out.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * 多个dtoList或�?dto（可以混用）
-	 * 
-	 * @author hdu
-	 * @param map
-	 *            --基本类型、dto、dtolist的map
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	private static String multiDtoListToJSON(Map<String, Object> map) {
-		SerializerState state = new SerializerState();
-		JSONObject jo = new JSONObject();
-		try {
-			for (Map.Entry<String, Object> entry : map.entrySet()) {
-				jo.put(entry.getKey(), ser.marshall(state, entry.getValue()));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return jo.toString();
-	}
-
-	/**
-	 * 多个dtoList或�?dto（可以混用）
-	 * 
-	 * @author hdu
-	 * @param objectMap
-	 *            --基本类型、dto、dtolist的map
-	 * @param response
-	 */
-	@SuppressWarnings("unchecked")
-	public static void outputMultiDtoListToJSON(Map<String, Object> objectMap, HttpServletResponse response) {
-		outputMultiDtoListToJSON(objectMap, null, response);
-	}
-
-	/**
-	 * 多个dtoList或�?dto（可以混用）
-	 * 
-	 * @author hdu
-	 * @param objectMap
-	 *            --基本类型、dto、dtolist的map
-	 * @param contentType
-	 * @param response
-	 */
-	@SuppressWarnings("unchecked")
-	public static void outputMultiDtoListToJSON(Map<String, Object> objectMap, String contentType, HttpServletResponse response) {
-		/**
-		 * 安全隐私协议
-		 */
-		addP3P(response);
-		StringBuffer sb = new StringBuffer();
-		String dtoJsonString = multiDtoListToJSON(objectMap);
-		sb.append(dtoJsonString);
-		byte[] bout = null;
-		try {
-			bout = sb.toString().getBytes("UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			e1.printStackTrace();
-		}
-		if (StringUtil.isNull(contentType)) {
-			response.setContentType("text/plain;charset=utf-8");
-		} else {
-			response.setContentType(contentType);
-		}
-		if (KEEPALIVE) {
-			response.setIntHeader("Content-Length", bout.length);
-		}
-		try {
-			OutputStream out = response.getOutputStream();
-			out.write(bout);
-			out.flush();
-			out.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	/**
-	 * 在异步获取列表发生错误时，返回一个outputDTOToJSON方法可用的erroMap
-	 * 直接用outputOperationResultAsJSON返回的话，可能会影响到ext的grid或者jquery的datatable的内部代码的运行
-	 */
-	public static Map<String, Object> buildErrorResultMap(String msg) {
-		Map<String, Object> errorMap = new HashMap<String, Object>();
-		errorMap.put("success", false);
-		errorMap.put("message", msg);
-		errorMap.put(CommonStaticConst.TOTALCOUNT, 0);
-		return errorMap;
-	}
-	
+ 
 	/**
 	 * NIO
 	 * @param str
