@@ -30,7 +30,7 @@
 						</div>
 						<div class="span8 blog-article">
 							<h2>
-								<a href="#"> <c:choose>
+								<a href="<%=contextPath%>/blog/${category }/${diary.id }"> <c:choose>
 										<c:when test="${fn:length(diary.title) > 15}">
 											<c:out value="${fn:substring(diary.title, 0, 15)}......"
 												escapeXml="true" />
@@ -52,7 +52,7 @@
 									</c:otherwise>
 								</c:choose>
 							</p>
-							<a class="btn blue" href="page_blog_item.html"> Read more <i
+							<a class="btn blue" href="<%=contextPath%>/blog/${category }/${diary.id }"> Read more <i
 								class="m-icon-swapright m-icon-white"></i>
 							</a>
 						</div>
