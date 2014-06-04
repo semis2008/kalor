@@ -66,7 +66,12 @@ public interface DiaryService {
 	 * @return
 	 */
 	int updateDiaryRead(String diaryid);
-
+	/**
+	 * 依据状态获取日志
+	 * @param status
+	 * @return
+	 */
+	DiaryBO getTopDiaryRand();
 	/**
 	 * 获取系统日志总数
 	 * 

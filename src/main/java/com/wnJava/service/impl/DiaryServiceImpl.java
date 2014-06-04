@@ -37,7 +37,18 @@ public class DiaryServiceImpl implements DiaryService {
 		 
 		return diaries;
 	}
-
+	@Override
+	public DiaryBO getTopDiaryRand() {
+		List<DiaryBO> topDiaries = diaryDao.queryDiaryByStatus("top");
+		int index = 0;
+		index = (int) (Math.random()*(topDiaries.size()+1))-1;
+		if(index<0) {
+			index=0;
+		}else if(index==topDiaries.size()) {
+			index--;	
+		}
+		return topDiaries.get(index);
+	}
 	 
 	@Override
 	public List<DiaryBO> getNewDiaryList(int num) {

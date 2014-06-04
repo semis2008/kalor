@@ -5,11 +5,11 @@
 	int serverPort = request.getServerPort(); // 服务器端口
 	 
 	String title = "Kalor | 快速 尖锐 不凡";
-	String description = "特殊的社区网站。";
-	String author = "懒熊";
+	String description = "或许可以做成最简单的社区网站。";
+	String author = "偷懒的熊";
 	String keywords = "社区 java lucence 快速开发 bootstrap";
-	String version = "?10000";
-	String staticPath = contextPath + "/media";
+	String version = "?v_1.0.0";
+	String staticPath = contextPath + "/static";
 	String ICP_BEIAN = "京ICP备13011487号";
 %>
 <!DOCTYPE html>

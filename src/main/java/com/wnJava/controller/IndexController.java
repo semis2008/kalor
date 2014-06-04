@@ -15,6 +15,7 @@ import com.wnJava.bo.UserBO;
 import com.wnJava.service.DiaryService;
 import com.wnJava.service.UserService;
 import com.wnJava.vo.AppInfoVO;
+import com.wnJava.vo.TagVO;
 
 /**
  * 系统响应处理类
@@ -44,35 +45,48 @@ public class IndexController {
 	private ModelAndView showIndex(HttpServletRequest req,
 			HttpServletResponse resp) {
 		// 获取最新日志
-		List<DiaryBO> diaries = diaryService.getNewDiaryList(12);
+		List<DiaryBO> diaries = diaryService.getNewDiaryList(4);
 		// 获取应用统计信息
 		AppInfoVO infoVO = new AppInfoVO();
 		infoVO.setDiaryCount(diaryService.getTotalDiaryCount());
 		infoVO.setNewsCount(26);
 		infoVO.setSolutionCount(31);
 		infoVO.setUserCount(userService.getUsers().size());
-		
+		//随机获取推荐日志
+		DiaryBO topDiary = diaryService.getTopDiaryRand();	
 		// 获取活跃用户
-		List<UserBO> activeUsers = userService.getActiveUsers(16);
+		List<UserBO> activeUsers = userService.getActiveUsers(8);
 		// 获取热门日志
-		List<DiaryBO> hotDiaries = diaryService.getHotDiaries(12);
+		List<DiaryBO> hotDiaries = diaryService.getHotDiaries(10);
 		// 获取留言
-		List<LeaveMsgBO> leaveMsgs = userService.getLeaveMsg(10);
+		List<LeaveMsgBO> leaveMsgs = userService.getLeaveMsg(5);
 
-		// 构造前台所需的Activeuserlist
-		List<List<UserBO>> activeUsersList = new ArrayList<List<UserBO>>();
-		for (int i = 0; i < activeUsers.size(); i += 2) {
-			List<UserBO> rowUsers = new ArrayList<UserBO>();
-			rowUsers.add(activeUsers.get(i));
-			rowUsers.add(activeUsers.get(i + 1));
-			activeUsersList.add(rowUsers);
-		}
+		 
+		List<TagVO> hotTags = new ArrayList<TagVO>();
+		hotTags.add(new TagVO("Js","2"));
+		hotTags.add(new TagVO("Java","4"));
+		hotTags.add(new TagVO("Linux","1"));
+		hotTags.add(new TagVO("Html5","1"));
+		hotTags.add(new TagVO("测试","2"));
+		hotTags.add(new TagVO("MySql","2"));
+		hotTags.add(new TagVO("转载","3"));
+		hotTags.add(new TagVO("公告","4"));
+		hotTags.add(new TagVO("面试","3"));
+		hotTags.add(new TagVO("CSS","3"));
+		hotTags.add(new TagVO("开发计划","3"));
+		
+		
+		
+		req.setAttribute("hotTags", hotTags);
+		
+		
 
 		req.setAttribute("appInfo", infoVO);
+		req.setAttribute("topDiary", topDiary);
 		req.setAttribute("latestDiaries", diaries);
 		req.setAttribute("leaveMsgs", leaveMsgs);
 		req.setAttribute("hotDiaries", hotDiaries);
-		req.setAttribute("activeUsers", activeUsersList);
+		req.setAttribute("activeUsers", activeUsers);
 		return new ModelAndView("index");
 	}
 	
