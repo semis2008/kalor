@@ -18,6 +18,7 @@ import com.wnJava.bo.UserBO;
 import com.wnJava.dao.DiaryDao;
 import com.wnJava.service.DiaryService;
 import com.wnJava.util.StringUtil;
+import com.wnJava.vo.TagVO;
 
 /**
  * 日志业务处理接口实现类
@@ -100,6 +101,23 @@ public class DiaryServiceImpl implements DiaryService {
 			} 
 		}
 		return StringUtil.removeDuplicate(tags);
+	}
+	@Override
+	public List<TagVO> getHotTags() {
+		List<TagVO> hotTags = new ArrayList<TagVO>();
+		hotTags.add(new TagVO("Js","2"));
+		hotTags.add(new TagVO("Java","4"));
+		hotTags.add(new TagVO("Linux","1"));
+		hotTags.add(new TagVO("Html5","1"));
+		hotTags.add(new TagVO("测试","2"));
+		hotTags.add(new TagVO("MySql","2"));
+		hotTags.add(new TagVO("转载","3"));
+		hotTags.add(new TagVO("公告","4"));
+		hotTags.add(new TagVO("面试","3"));
+		hotTags.add(new TagVO("CSS","3"));
+		hotTags.add(new TagVO("开发计划","3"));
+		return hotTags;
+		
 	}
 
 }

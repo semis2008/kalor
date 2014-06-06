@@ -10,6 +10,6 @@
 	String keywords = "社区 java lucence 快速开发 bootstrap";
 	String version = "?v_1.0.0";
 	String staticPath = contextPath + "/static";
-	String ICP_BEIAN = "京ICP备13011487号";
+	String ICP_BEIAN = "2013 京ICP备13011487号";
 %>
 <!DOCTYPE html>

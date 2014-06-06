@@ -14,6 +14,8 @@ import com.wnJava.bo.LeaveMsgBO;
 import com.wnJava.bo.UserBO;
 import com.wnJava.service.DiaryService;
 import com.wnJava.service.UserService;
+import com.wnJava.util.EscapedHtmlUtil;
+import com.wnJava.util.StringUtil;
 import com.wnJava.vo.AppInfoVO;
 import com.wnJava.vo.TagVO;
 
@@ -40,10 +42,11 @@ public class IndexController {
 	 * @param req
 	 * @param resp
 	 * @return
+	 * @throws Exception 
 	 */
 	@RequestMapping
 	private ModelAndView showIndex(HttpServletRequest req,
-			HttpServletResponse resp) {
+			HttpServletResponse resp) throws Exception {
 		// 获取最新日志
 		List<DiaryBO> diaries = diaryService.getNewDiaryList(4);
 		// 获取应用统计信息
@@ -58,29 +61,13 @@ public class IndexController {
 		List<UserBO> activeUsers = userService.getActiveUsers(8);
 		// 获取热门日志
 		List<DiaryBO> hotDiaries = diaryService.getHotDiaries(10);
+		topDiary.setContent(StringUtil.escapeHtmlTags(topDiary.getContent()));
 		// 获取留言
 		List<LeaveMsgBO> leaveMsgs = userService.getLeaveMsg(5);
 
-		 
-		List<TagVO> hotTags = new ArrayList<TagVO>();
-		hotTags.add(new TagVO("Js","2"));
-		hotTags.add(new TagVO("Java","4"));
-		hotTags.add(new TagVO("Linux","1"));
-		hotTags.add(new TagVO("Html5","1"));
-		hotTags.add(new TagVO("测试","2"));
-		hotTags.add(new TagVO("MySql","2"));
-		hotTags.add(new TagVO("转载","3"));
-		hotTags.add(new TagVO("公告","4"));
-		hotTags.add(new TagVO("面试","3"));
-		hotTags.add(new TagVO("CSS","3"));
-		hotTags.add(new TagVO("开发计划","3"));
-		
-		
+		List<TagVO> hotTags = diaryService.getHotTags();
 		
 		req.setAttribute("hotTags", hotTags);
-		
-		
-
 		req.setAttribute("appInfo", infoVO);
 		req.setAttribute("topDiary", topDiary);
 		req.setAttribute("latestDiaries", diaries);
@@ -89,7 +76,5 @@ public class IndexController {
 		req.setAttribute("activeUsers", activeUsers);
 		return new ModelAndView("index");
 	}
-	
-	
 
 }

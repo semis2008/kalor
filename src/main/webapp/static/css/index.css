@@ -6,20 +6,6 @@
 	margin-bottom: -270px;
 	padding: 40px;
 }
- 
-#content {
-	background: url("../img/bg04.png") repeat scroll 0 0 #F7F7F7;
-	border-top: 1px solid #FFFFFF;
-	margin-top: -20px;
-}
-
-#content section {
-	background: none repeat scroll 0 0 #FFFFFF;
-	box-shadow: 2px 2px 2px 1px rgba(128, 128, 128, 0.1);
-	margin: 0 0 30px;
-	padding: 25px 20px 30px 20px;
-	position: relative;
-}
 
 .logo-info {
 	color: #6b7770;
@@ -36,10 +22,6 @@
 	text-decoration: none;
 }
 
-#main-wrapper {
-	margin-top: 60px;
-	padding-bottom: 100px;
-}
 
 .major span {
 	background: none repeat scroll 0 0 #FFFFFF;
@@ -83,9 +65,6 @@
 .side-ul>li h5{
 	margin: 5px 0 5px 0;
 }
-section:last-child,article:last-child {
-	margin-bottom: 0;
-}
 
 .is-post-summary .meta {
 	line-height: 1em;
@@ -97,31 +76,6 @@ ul.meta {
 	font-size: 0.85em;
 }
 
-.button {
-	background: none repeat scroll 0 0 #E3DAA8;
-	border-radius: 8px 8px 8px 8px;
-	color: #FFFFFF;
-	display: inline-block;
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-weight: 700;
-	outline: 0 none;
-	text-decoration: none;
-	text-transform: uppercase;
-	transition: background-color 0.2s ease-in-out 0s;
-	font-size: 1.25em;
-	padding: 0.85em 1.85em;
-	margin-top: 20px;
-}
-.button:hover {
-    background: none repeat scroll 0 0 #EBE3B2;
-}
-.button-alt {
-	background: none repeat scroll 0 0 #C1CAC5;
-}
-
-.button-alt:hover {
-	background: none repeat scroll 0 0 #CCD5D0;
-}
 .image{
 	position: relative;
 }
@@ -180,21 +134,6 @@ ul.meta {
     box-shadow: 2px 2px 2px 1px rgba(128, 128, 128, 0.3);
     margin: 0 0 10%;
     padding: 5px;
-}
-.diarySec a , #hotDiarySec .button {
-	text-decoration: none;
-}
-
-.diarySec h3 {
-    font-size: 24px;
-}
-.diarySec blockquote{
-	margin-left: 85px;
-}
-.diarySec em{
-	color: #6b7770;
-	font-size: small;
-	float: right;
 }
  
 #leaveMsgSec input.text, #leaveMsgSec textarea {

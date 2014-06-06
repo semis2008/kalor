@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wnJava.bo.DiaryBO;
 import com.wnJava.bo.DiaryReplyBO;
+import com.wnJava.vo.TagVO;
 
 /**
  * 日志业务处理类
@@ -18,6 +19,8 @@ import com.wnJava.bo.DiaryReplyBO;
 public interface DiaryService {
 
 	List<DiaryBO> getDiaryListByCategory(String category,int start,int end);
+	
+	List<TagVO> getHotTags();
 	
 	/**
 	 * 获取最新日志列表 (取前4条)
