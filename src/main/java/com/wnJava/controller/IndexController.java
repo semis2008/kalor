@@ -60,19 +60,22 @@ public class IndexController {
 		// 获取活跃用户
 		List<UserBO> activeUsers = userService.getActiveUsers(8);
 		// 获取热门日志
-		List<DiaryBO> hotDiaries = diaryService.getHotDiaries(10);
+		List<DiaryBO> hotDiaries = diaryService.getHotDiaries(18);
 		topDiary.setContent(StringUtil.escapeHtmlTags(topDiary.getContent()));
+		List<DiaryBO> leftHotList = hotDiaries.subList(0, 8);
+		List<DiaryBO> rightHotList = hotDiaries.subList(9, 17);
+		
 		// 获取留言
 		List<LeaveMsgBO> leaveMsgs = userService.getLeaveMsg(5);
 
 		List<TagVO> hotTags = diaryService.getHotTags();
 		
 		req.setAttribute("hotTags", hotTags);
-		req.setAttribute("appInfo", infoVO);
 		req.setAttribute("topDiary", topDiary);
 		req.setAttribute("latestDiaries", diaries);
 		req.setAttribute("leaveMsgs", leaveMsgs);
-		req.setAttribute("hotDiaries", hotDiaries);
+		req.setAttribute("leftHotDiary", leftHotList);
+		req.setAttribute("rightHotDiary", rightHotList);
 		req.setAttribute("activeUsers", activeUsers);
 		return new ModelAndView("index");
 	}

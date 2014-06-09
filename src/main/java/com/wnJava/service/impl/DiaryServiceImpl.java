@@ -84,7 +84,7 @@ public class DiaryServiceImpl implements DiaryService {
 
 
 	@Override
-	public List<DiaryBO> getDiaryListByCategory(String category, int start, int end) {
+	public List<DiaryBO> getDiaryList(int start, int end) {
 		return diaryDao.queryAllDiaryList(start, end);
 	}
 

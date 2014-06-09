@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <h3 class="major">
-	<span><i class="icon-star-empty"></i> 推荐日志</span>
+	<span><i class="icon-star-empty"></i> 推荐博文</span>
 </h3>
 <div>
 	<img width="60px" height="60px" alt="" class="img-polaroid left"

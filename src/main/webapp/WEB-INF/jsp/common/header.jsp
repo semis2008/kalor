@@ -12,13 +12,13 @@
 			<div class="brand">&nbsp;&nbsp;&nbsp;&nbsp;WNJava&nbsp;&nbsp;&nbsp;&nbsp;</div>
 			<div class="nav-collapse collapse navbar-responsive-collapse">
 				<ul class="nav">
-					<li class="active"><a href="<%=contextPath %>/index"><i
+					<li <% if(fun.equals("index")) {%> class="active" <%} %>><a href="<%=contextPath %>/index"><i
 							class="icon-home icon-white"></i> 首页</a></li>
-					<li><a data-type="pjax" href="<%=contextPath %>/blog"><i
+					<li <% if(fun.equals("blog")) {%> class="active" <%} %>><a href="<%=contextPath %>/blog"><i
 							class="icon-edit icon-white"></i> 博文</a></li>
-					<li><a href="<%=contextPath %>/index#leaveMsgSec"><i
+					<li ><a href="<%=contextPath %>/index#leaveMsgSec"><i
 							class="icon-envelope icon-white"></i> 留言</a></li>
-					<li><a href="<%=contextPath %>/index#aboutSec"><i
+					<li ><a href="<%=contextPath %>/index#aboutSec"><i
 							class="icon-info-sign icon-white"></i> 关于</a></li>
 				</ul>
 				<ul class="nav pull-right">
@@ -152,5 +152,4 @@
 <div class="fixed goToTopDiv hide pointer padding-small">
 	<i onclick="goToTop()" class="icon-chevron-up icon-white icon-2x"></i>
 </div>
-
-<div id="main-frame"></div>
+ 

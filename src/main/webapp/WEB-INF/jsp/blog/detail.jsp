@@ -21,10 +21,15 @@
 	<!-- BEGIN CONTAINER -->
 	<div id="content">
 		<!-- 设置需要显示的属性 -->
+		<c:set value="${diary }" var="diary" />
+		<c:set value="${replyList }" var="replyList" />
+		
 		<div class="container" id="main-wrapper">
 			<div class="row margin-top-large">
 				<div class="span9">
-					<article class="page-set"></article>
+					<article>
+						<%@ include file="detailPageHtml.jsp" %> 
+					</article>
 					<div class="text-center hide" id="loadingDIV">
 						<img alt="loading" src="<%=staticPath%>/img/loading.gif" />
 					</div>
@@ -33,7 +38,7 @@
 					<article class="side_ul">
 						<section>
 							<h3 class="major">
-								<span><i class="icon-fire"></i> 最新博文</span>
+								<span><i class="icon-fire"></i> 热门博文</span>
 							</h3>
 							<ul class="unstyled side-ul">
 								<c:forEach items="${hotDiaries }" var="diary">
@@ -58,7 +63,7 @@
 									</li>
 								</c:forEach>
 							</ul>
-							<a class="button button-alt" href="#">查看全部 <i
+							<a class="button button-alt" href="<%=contextPath %>/blog">查看全部 <i
 								class="icon-hand-right"></i>
 							</a>
 						</section>
@@ -88,8 +93,6 @@
 	<script src="<%=staticPath%>/js/jquery.sausage.js<%=version%>"
 		type="text/javascript"></script>
 	<script src="<%=staticPath%>/js/common.js<%=version%>"
-		type="text/javascript"></script>
-	<script src="<%=staticPath%>/js/blogList.js<%=version%>"
 		type="text/javascript"></script>
 </body>
 </html>

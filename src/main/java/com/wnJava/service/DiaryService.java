@@ -18,7 +18,7 @@ import com.wnJava.vo.TagVO;
  */
 public interface DiaryService {
 
-	List<DiaryBO> getDiaryListByCategory(String category,int start,int end);
+	List<DiaryBO> getDiaryList(int start,int end);
 	
 	List<TagVO> getHotTags();
 	

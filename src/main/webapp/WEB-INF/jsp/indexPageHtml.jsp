@@ -12,15 +12,14 @@
 	<!-- 热门日志 -->
 	<section id="hotDiarySec">
 		<h3 class="major">
-			<span><i class="icon-lightbulb"></i> 热门日志</span>
+			<span><i class="icon-lightbulb"></i> 热门博文</span>
 		</h3>
 		<div>
 			<div class="span4">
 				<ul class="unstyled">
-					<c:forEach items="${hotDiaries}" var="diary">
-						<li><a data-type="pjax" href="#"><i
-								class="icon-lightbulb"></i>
-							<c:choose>
+					<c:forEach items="${leftHotDiary}" var="diary">
+						<li><a href="<%=contextPath %>/blog/${diary.id }"><i
+								class="icon-lightbulb"></i> <c:choose>
 									<c:when test="${fn:length(diary.title) > 20}">
 										<c:out value="${fn:substring(diary.title, 0, 20)}..."
 											escapeXml="true" />
@@ -34,10 +33,8 @@
 			</div>
 			<div class="span4">
 				<ul class="unstyled">
-					<c:forEach items="${hotDiaries}" var="diary">
-						<li><a data-type="pjax" href="#"><i
-								class="icon-lightbulb"></i>
-							<c:choose>
+					<c:forEach items="${rightHotDiary}" var="diary">
+						<li><a href="<%=contextPath %>/blog/${diary.id }"><i class="icon-lightbulb"></i> <c:choose>
 									<c:when test="${fn:length(diary.title) > 20}">
 										<c:out value="${fn:substring(diary.title, 0, 20)}......"
 											escapeXml="true" />
@@ -50,8 +47,7 @@
 				</ul>
 			</div>
 		</div>
-		<a class="button" data-type="pjax" href="# ">查看全部 <i
-			class=" icon-hand-right"></i>
+		<a class="button" href="# ">查看全部 <i class=" icon-hand-right"></i>
 		</a>
 	</section>
 	<!-- /热门日志 -->

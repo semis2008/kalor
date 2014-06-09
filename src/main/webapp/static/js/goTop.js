@@ -1,8 +1,4 @@
-function goToTop() {
-	$('body,html').animate({
-		scrollTop: 0
-	}, 1000);
-}
+
 $(window).scroll(function() {
 	var t = $(document).scrollTop();
 	if (t >= 300) {
@@ -11,6 +7,11 @@ $(window).scroll(function() {
 		hideGoToTop();
 	}
 });
+function goToTop() {
+	$('body,html').animate({
+		scrollTop: 0
+	}, 1000);
+}
 function showGoToTop() {
 	$(".goToTopDiv").show();
 }

@@ -9297,7 +9297,6 @@ jQuery.offset = {
 	}
 };
 
-
 jQuery.fn.extend({
 
 	position: function() {

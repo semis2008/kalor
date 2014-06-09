@@ -16,6 +16,31 @@
 	left: 10px;
 }
  
+.tagSize1{
+	font-size: 12px;
+	font-weight: lighter;
+}
+
+.tagSize2{
+	font-size: 14px;
+	font-weight: normal;
+}
+
+.tagSize3{
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.tagSize4{
+	font-size: 18px;
+	font-weight: bolder;
+}
+.side_ul a{
+	color: #6B7770;
+}
+#hotTagSec a:HOVER{
+	text-decoration: underline;
+}
 .side-ul {
 	color: #6b7770;
 }
