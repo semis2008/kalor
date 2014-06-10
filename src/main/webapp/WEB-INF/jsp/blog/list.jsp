@@ -15,7 +15,7 @@
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
-<body class="">
+<body>
 	<%@ include file="../common/header.jsp"%>
 	<input type="hidden" value="<%=contextPath %>" id="contextPath">
 	<!-- BEGIN CONTAINER -->

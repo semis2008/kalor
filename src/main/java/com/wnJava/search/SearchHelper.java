@@ -92,7 +92,7 @@ public class SearchHelper {
 	public static Query makeQuery(String field, String q) {
 		if (StringUtils.isBlank(q) || StringUtils.isBlank(field))
 			return nullQuery;
-		QueryParser parser = new QueryParser(Version.LUCENE_40, field, analyzer);
+		QueryParser parser = new QueryParser(Version.LUCENE_48, field, analyzer);
 		parser.setDefaultOperator(QueryParser.AND_OPERATOR);
 		try {
 			Query querySinger = parser.parse(q);
@@ -115,7 +115,7 @@ public class SearchHelper {
 	public static Query makeQuery(String field, String q, float boost) {
 		if (StringUtils.isBlank(q) || StringUtils.isBlank(field))
 			return nullQuery;
-		QueryParser parser = new QueryParser(Version.LUCENE_40, field, analyzer);
+		QueryParser parser = new QueryParser(Version.LUCENE_48, field, analyzer);
 		parser.setDefaultOperator(QueryParser.AND_OPERATOR);
 		try {
 			Query querySinger = parser.parse(q);

@@ -101,7 +101,7 @@ public class IndexTools {
 	 * @throws InvalidTokenOffsetsException
 	 */
 	@SuppressWarnings("deprecation")
-	public void searchIndex() throws ParseException, IOException, InvalidTokenOffsetsException {
+	public void searchIndex() throws  IOException, InvalidTokenOffsetsException, ParseException {
 		String indexPath = "D://TEST"; // 建立索引文件的目录
 		// 默认IKAnalyzer()-false:实现最细粒度切分算法,true:分词器采用智能切分
 		Analyzer analyzer = new IKAnalyzer(true);

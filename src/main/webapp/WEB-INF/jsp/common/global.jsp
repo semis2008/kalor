@@ -13,6 +13,9 @@
 	if(urlStr.indexOf("blog")>0) {
 		fun = "blog";
 	}
+	if(urlStr.indexOf("lucence")>0) {
+		fun = "lucence";
+	}
 	 
 	String title = "Kalor | 快速 尖锐 不凡";
 	String description = "或许可以做成最简单的社区网站。";

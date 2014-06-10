@@ -40,7 +40,7 @@
 		<junit.version>4.11</junit.version>
 
 		<!-- lucence -->
-		<lucence.version>4.0.0</lucence.version>
+		<lucence.version>4.8.1</lucence.version>
 		<!-- Plugin的属性定义 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jdk.version>1.6</jdk.version>
@@ -109,16 +109,11 @@
 			<version>2.2.4</version>
 		</dependency>
 
-		<!-- lucence 
+		<!-- lucence -->
 		<dependency>
 			<groupId>org.apache.lucene</groupId>
 			<artifactId>lucene-core</artifactId>
 			<version>${lucence.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.lucene</groupId>
-			<artifactId>lucene-queryparser</artifactId>
-			<version>${lucene.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.lucene</groupId>
@@ -130,7 +125,7 @@
 			<artifactId>lucene-highlighter</artifactId>
 			<version>${lucence.version}</version>
 		</dependency>
-		-->
+
 
 		<!-- 日志库 -->
 		<dependency>

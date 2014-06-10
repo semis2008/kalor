@@ -9,13 +9,15 @@
 				class="btn btn-navbar"> <span class="icon-bar"></span> <span
 				class="icon-bar"></span> <span class="icon-bar"></span>
 			</a>
-			<div class="brand">&nbsp;&nbsp;&nbsp;&nbsp;WNJava&nbsp;&nbsp;&nbsp;&nbsp;</div>
+			<div class="brand">&nbsp;&nbsp;&nbsp;&nbsp;Kalor&nbsp;&nbsp;&nbsp;&nbsp;</div>
 			<div class="nav-collapse collapse navbar-responsive-collapse">
 				<ul class="nav">
 					<li <% if(fun.equals("index")) {%> class="active" <%} %>><a href="<%=contextPath %>/index"><i
 							class="icon-home icon-white"></i> 首页</a></li>
 					<li <% if(fun.equals("blog")) {%> class="active" <%} %>><a href="<%=contextPath %>/blog"><i
 							class="icon-edit icon-white"></i> 博文</a></li>
+					<li <% if(fun.equals("lucence")) {%> class="active" <%} %>><a href="<%=contextPath %>/lucence"><i
+							class="icon-search icon-white"></i> lucence</a></li>				
 					<li ><a href="<%=contextPath %>/index#leaveMsgSec"><i
 							class="icon-envelope icon-white"></i> 留言</a></li>
 					<li ><a href="<%=contextPath %>/index#aboutSec"><i

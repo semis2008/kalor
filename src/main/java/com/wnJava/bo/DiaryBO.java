@@ -1,10 +1,14 @@
 package com.wnJava.bo;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
+import com.wnJava.search.Searchable;
 import com.wnJava.util.DateUtil;
 
-public class DiaryBO{
+public class DiaryBO implements Searchable{
 	private Long id;
 	private String title;
 	private String content;
@@ -91,6 +95,54 @@ public class DiaryBO{
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	@Override
+	public int compareTo(Searchable o) {
+		return 0;
+	}
+
+	@Override
+	public long id() {
+		return this.id;
+	}
+
+	@Override
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	@Override
+	public List<String> storeFields() {
+		return Arrays.asList("title","author_id","author_name","publish_time","tags","read_num","reply_num","author_photo");
+	}
+
+	@Override
+	public List<String> indexFields() {
+		return Arrays.asList("title","author_name","tags","content");
+	}
+
+	@Override
+	public float boost() {
+		return 1.0f;
+	}
+
+	@Override
+	public Map<String, String> extendStoreDatas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, String> extendIndexDatas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<? extends Searchable> ListAfter(long id, int count) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

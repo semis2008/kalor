@@ -1,6 +1,16 @@
+html{
+	height: 100%;
+}
+
+body{
+	height: 100%;
+}
+
 #content {
-	min-height: 70%;
-	margin-top: 40px;
+	background: url("../img/bg04.png") repeat scroll 0 0 #F7F7F7;
+	border-top: 1px solid #FFFFFF;
+	min-height: 100%;
+	margin-top: -20px;
 }
 
 #main-wrapper {
@@ -191,12 +201,6 @@ h1,h2,h3,h4,h5,h6,h7 {
 	right: 50px;
 	margin: 0 0 10%;
 	z-index: 999999;
-}
-
-#content {
-	background: url("../img/bg04.png") repeat scroll 0 0 #F7F7F7;
-	border-top: 1px solid #FFFFFF;
-	margin-top: -20px;
 }
 
 #content section {
