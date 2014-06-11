@@ -109,7 +109,7 @@
 			<version>2.2.4</version>
 		</dependency>
 
-		<!-- lucence -->
+		<!-- lucence 
 		<dependency>
 			<groupId>org.apache.lucene</groupId>
 			<artifactId>lucene-core</artifactId>
@@ -125,7 +125,7 @@
 			<artifactId>lucene-highlighter</artifactId>
 			<version>${lucence.version}</version>
 		</dependency>
-
+-->
 
 		<!-- 日志库 -->
 		<dependency>

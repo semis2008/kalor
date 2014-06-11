@@ -21,6 +21,7 @@ public class DiaryBO implements Searchable{
 	private String status;
 	private String author_photo;
 	private String time_before;
+	private String all_have;
 
 	public String getTime_before() {
 		return DateUtil.getPassedTime(publish_time);
@@ -33,14 +34,19 @@ public class DiaryBO implements Searchable{
 	public String getAuthor_photo() {
 		return author_photo;
 	}
+	public String getAll_have() {
+		return all_have;
+	}
+
+	public void setAll_have(String all_have) {
+		this.all_have = all_have;
+	}
+
 	public void setAuthor_photo(String author_photo) {
 		this.author_photo = author_photo;
 	}
 	public Long getId() {
 		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
 	}
 	public Long getRead_num() {
 		return read_num;
@@ -114,7 +120,7 @@ public class DiaryBO implements Searchable{
 
 	@Override
 	public List<String> storeFields() {
-		return Arrays.asList("title","author_id","author_name","publish_time","tags","read_num","reply_num","author_photo");
+		return Arrays.asList("all_have","title","content","author_id","author_name","publish_time","tags","read_num","reply_num","author_photo");
 	}
 
 	@Override

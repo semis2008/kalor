@@ -22,6 +22,7 @@ import org.wltea.analyzer.lucene.IKAnalyzer;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -39,6 +40,8 @@ public class SearchHelper {
 
 	public final static String FN_ID = "___id";
 	public final static String FN_CLASSNAME = "___class";
+	public final static String FN_ALL_HAVE = "all_have";
+	public final static String FN_ALL_HAVE_CONTENT = "allhave";
 
 	private final static List<String> nowords = new ArrayList<String>() {
 		{
@@ -234,6 +237,9 @@ public class SearchHelper {
 	 * @param obj
 	 *            Java 对象
 	 * @return 返回Lucene文档
+	 * @throws NoSuchMethodException 
+	 * @throws InvocationTargetException 
+	 * @throws IllegalAccessException 
 	 */
 	public static Document obj2doc(Searchable obj) {
 		if (obj == null)
@@ -242,7 +248,13 @@ public class SearchHelper {
 		Document doc = new Document();
 		doc.add(new LongField(FN_ID, obj.id(), Field.Store.YES));
 		doc.add(new StoredField(FN_CLASSNAME, obj.getClass().getName()));
-
+		try {
+			PropertyUtils.setProperty(obj, FN_ALL_HAVE, FN_ALL_HAVE_CONTENT);
+		} catch (IllegalAccessException | InvocationTargetException
+				| NoSuchMethodException e) {
+			e.printStackTrace();
+		}
+		
 		// 存储字段
 		List<String> fields = obj.storeFields();
 		if (fields != null)

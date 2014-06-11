@@ -1,6 +1,7 @@
 package com.wnJava.search;
 
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,7 +77,7 @@ public class IndexHolder {
 	
 	private IndexWriter getWriter(Class<? extends Searchable> objClass) throws IOException {
 		Directory dir = FSDirectory.open(new File(indexPath + objClass.getSimpleName()));
-	    IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_40, analyzer);
+	    IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_48, analyzer);
 	    config.setOpenMode(OpenMode.CREATE_OR_APPEND);
 		return new IndexWriter(dir, config);
 	}
@@ -245,13 +246,17 @@ public class IndexHolder {
 	 * 批量添加索引
 	 * @param docs
 	 * @throws IOException 
+	 * @throws NoSuchMethodException 
+	 * @throws InvocationTargetException 
+	 * @throws IllegalAccessException 
 	 */
 	public int add(List<? extends Searchable> objs) throws IOException {
 		if (objs == null || objs.size() == 0)
 			return 0;
 		int doc_count = 0;
-		IndexWriter writer = getWriter(objs.get(0).getClass());
-		try{
+		IndexWriter writer = null;
+		try {
+			writer = getWriter(objs.get(0).getClass());
 			for (Searchable obj : objs) {
 				Document doc = SearchHelper.obj2doc(obj);				
 				writer.addDocument(doc);
