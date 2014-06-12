@@ -34,15 +34,17 @@ public class LuceneTester {
 		IndexHolder holder = IndexHolder.getInstance();
 		
 		DiaryBO bo=  new DiaryBO();
-		bo.setId(1l);
+		bo.setId(2l);
 		bo.setAuthor_name("123");
 		bo.setContent("dddddd");
 		bo.setTitle("ggggggggg");
 		
 		holder.optimize(bo.getClass());
-		holder.add(Arrays.asList(bo));
+//		holder.add(Arrays.asList(bo));
+//		holder.delete(Arrays.asList(bo));
 		
-		Query q = SearchHelper.makeQuery(SearchHelper.FN_ALL_HAVE, SearchHelper.FN_ALL_HAVE_CONTENT , 1.0f);
+		
+		Query q = SearchHelper.makeQueryAll(1.0f);
 		List<Searchable> hits = holder.find(DiaryBO.class, q, null, new Sort(), 1, 100);
 		for (Searchable searchable : hits) {
 			DiaryBO d = (DiaryBO) searchable;

@@ -95,7 +95,7 @@ public class SearchHelper {
 	public static Query makeQuery(String field, String q) {
 		if (StringUtils.isBlank(q) || StringUtils.isBlank(field))
 			return nullQuery;
-		QueryParser parser = new QueryParser(Version.LUCENE_48, field, analyzer);
+		QueryParser parser = new QueryParser(Version.LUCENE_40, field, analyzer);
 		parser.setDefaultOperator(QueryParser.AND_OPERATOR);
 		try {
 			Query querySinger = parser.parse(q);
@@ -106,6 +106,20 @@ public class SearchHelper {
 		}
 	}
 
+	/**
+	 * 
+	  * 生成整体查询
+	  *
+	  * @autor: wn  2014-6-12 上午11:21:58
+	  * @param boost
+	  * @return
+	 */
+	public static Query makeQueryAll(float boost) {
+		return makeQuery(SearchHelper.FN_ALL_HAVE, SearchHelper.FN_ALL_HAVE_CONTENT , 1.0f);
+	}
+		
+		
+	
 	/**
 	 * 生成查询条件
 	 * 
@@ -118,7 +132,7 @@ public class SearchHelper {
 	public static Query makeQuery(String field, String q, float boost) {
 		if (StringUtils.isBlank(q) || StringUtils.isBlank(field))
 			return nullQuery;
-		QueryParser parser = new QueryParser(Version.LUCENE_48, field, analyzer);
+		QueryParser parser = new QueryParser(Version.LUCENE_40, field, analyzer);
 		parser.setDefaultOperator(QueryParser.AND_OPERATOR);
 		try {
 			Query querySinger = parser.parse(q);
@@ -250,11 +264,16 @@ public class SearchHelper {
 		doc.add(new StoredField(FN_CLASSNAME, obj.getClass().getName()));
 		try {
 			PropertyUtils.setProperty(obj, FN_ALL_HAVE, FN_ALL_HAVE_CONTENT);
-		} catch (IllegalAccessException | InvocationTargetException
-				| NoSuchMethodException e) {
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		// 存储字段
 		List<String> fields = obj.storeFields();
 		if (fields != null)
