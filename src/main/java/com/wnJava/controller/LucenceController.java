@@ -20,6 +20,8 @@ import com.wnJava.search.IndexHolder;
 import com.wnJava.search.SearchHelper;
 import com.wnJava.search.Searchable;
 import com.wnJava.service.DiaryService;
+import com.wnJava.util.JsonUtil;
+import com.wnJava.vo.lucence.DiaryVO;
 import com.wnJava.vo.lucence.IndexInfo;
 
 @Controller
@@ -31,7 +33,7 @@ public class LucenceController {
 	
 	@RequestMapping
 	private ModelAndView showLucencePage(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		IndexInfo indexInfo = getIndexInfo(DiaryBO.class);
+		IndexInfo indexInfo = getIndexInfo(new DiaryVO());
 		
 		req.setAttribute("blogInfo", indexInfo);
 		return new ModelAndView("/lucence/index");
@@ -41,30 +43,48 @@ public class LucenceController {
 	private void initBlogIndex(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		IndexHolder holder = IndexHolder.getInstance();
 		List<DiaryBO> bos = diaryService.getDiaryList(0, 100);
-		holder.add(bos);
+		List<DiaryVO> vos = new ArrayList<DiaryVO>();
+		for(DiaryBO bo:bos) {
+			DiaryVO vo = DiaryVO.getVO(bo);
+			vos.add(vo);
+		}
+		holder.add(vos);
+		JsonUtil.outputDTOToJSON(null, resp);
+	}
+
+	@RequestMapping(value="/ajax/search")
+	private void search(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		String key = (String) req.getParameter("key") ;
+		String value = (String) req.getParameter("value");
+		
+		IndexHolder holder = IndexHolder.getInstance();
+		Query q = SearchHelper.makeQuery(key, value);
+		
+		List<DiaryVO> vos = new ArrayList<DiaryVO>();
+		List<Searchable> hits = holder.find(DiaryVO.class, q, null, new Sort(), 1, 100);
+		for (Searchable searchable : hits) {
+			DiaryVO v = (DiaryVO) searchable;
+			vos.add(v);
+		}
+		JsonUtil.outputDTOToJSON(vos, resp);
 	}
 
 	
 	
 	@SuppressWarnings("unchecked")
-	private IndexInfo getIndexInfo(Class clazz) throws IOException {
+	private IndexInfo getIndexInfo(Searchable clazz) throws IOException {
 		IndexHolder holder = IndexHolder.getInstance();
 		IndexInfo indexInfo = new IndexInfo();
 		/*
 		 * 设置实体
 		 */
-		List<Searchable> diaries = new ArrayList<Searchable>();
 		Query q = SearchHelper.makeQueryAll(1.0f);
-		List<Searchable> hits = holder.find(clazz, q, null, new Sort(), 1, 100);
-		for (Searchable searchable : hits) {
-			DiaryBO d = (DiaryBO) searchable;
-			diaries.add(d);
-		}
-		indexInfo.setSearchables(diaries);
+		List<Searchable> hits = holder.find(clazz.getClass(), q, null, new Sort(), 1, 100);
+		indexInfo.setSearchables(hits);
 		/*
 		 * 设置统计信息
 		 */
-		IndexSearcher indexSearcher = IndexHolder.getInstance().getSearcher(clazz);
+		IndexSearcher indexSearcher = IndexHolder.getInstance().getSearcher(clazz.getClass());
 		indexInfo.setMaxDocCount(indexSearcher.getIndexReader().maxDoc());//总数
 		indexInfo.setDelDocCount(indexSearcher.getIndexReader().numDeletedDocs());//删除数
 		indexInfo.setDocCount(indexSearcher.getIndexReader().numDocs());//有效数

@@ -16,6 +16,7 @@ import com.wnJava.bo.DiaryBO;
 import com.wnJava.search.IndexHolder;
 import com.wnJava.search.SearchHelper;
 import com.wnJava.search.Searchable;
+import com.wnJava.vo.lucence.DiaryVO;
 
 /**
  * 测试索引过程
@@ -33,10 +34,9 @@ public class LuceneTester {
 	public static void main(String[] args) throws IOException {
 		IndexHolder holder = IndexHolder.getInstance();
 		
-		DiaryBO bo=  new DiaryBO();
+		DiaryVO bo=  new DiaryVO();
 		bo.setId(2l);
 		bo.setAuthor_name("123");
-		bo.setContent("dddddd");
 		bo.setTitle("ggggggggg");
 		
 		holder.optimize(bo.getClass());
@@ -45,14 +45,14 @@ public class LuceneTester {
 		
 		
 		Query q = SearchHelper.makeQueryAll(1.0f);
-		List<Searchable> hits = holder.find(DiaryBO.class, q, null, new Sort(), 1, 100);
+		List<Searchable> hits = holder.find(DiaryVO.class, q, null, new Sort(), 1, 100);
 		for (Searchable searchable : hits) {
 			DiaryBO d = (DiaryBO) searchable;
 			System.out.println(d.getId() + ";" + d.getTitle() + ";" + d.getContent());
 		}
 		
 		//测试数据
-		IndexSearcher indexSearcher = IndexHolder.getInstance().getSearcher(DiaryBO.class);
+		IndexSearcher indexSearcher = IndexHolder.getInstance().getSearcher(DiaryVO.class);
 		System.out.print(indexSearcher.getIndexReader().maxDoc());//总数
 		System.out.print(indexSearcher.getIndexReader().numDeletedDocs());//删除数
 		System.out.print(indexSearcher.getIndexReader().numDocs());//有效数

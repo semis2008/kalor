@@ -1,14 +1,9 @@
 package com.wnJava.bo;
 
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
-import java.util.Map;
-
-import com.wnJava.search.Searchable;
 import com.wnJava.util.DateUtil;
 
-public class DiaryBO implements Searchable{
+public class DiaryBO{
 	private Long id;
 	private String title;
 	private String content;
@@ -21,7 +16,6 @@ public class DiaryBO implements Searchable{
 	private String status;
 	private String author_photo;
 	private String time_before;
-	private String all_have;
 
 	public String getTime_before() {
 		return DateUtil.getPassedTime(publish_time);
@@ -34,19 +28,14 @@ public class DiaryBO implements Searchable{
 	public String getAuthor_photo() {
 		return author_photo;
 	}
-	public String getAll_have() {
-		return all_have;
-	}
-
-	public void setAll_have(String all_have) {
-		this.all_have = all_have;
-	}
-
 	public void setAuthor_photo(String author_photo) {
 		this.author_photo = author_photo;
 	}
 	public Long getId() {
 		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public Long getRead_num() {
 		return read_num;
@@ -101,54 +90,6 @@ public class DiaryBO implements Searchable{
 	}
 	public void setStatus(String status) {
 		this.status = status;
-	}
-
-	@Override
-	public int compareTo(Searchable o) {
-		return 0;
-	}
-
-	@Override
-	public long id() {
-		return this.id;
-	}
-
-	@Override
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	@Override
-	public List<String> storeFields() {
-		return Arrays.asList("all_have","title","content","author_id","author_name","publish_time","tags","read_num","reply_num","author_photo");
-	}
-
-	@Override
-	public List<String> indexFields() {
-		return Arrays.asList("title","author_name","tags","content");
-	}
-
-	@Override
-	public float boost() {
-		return 1.0f;
-	}
-
-	@Override
-	public Map<String, String> extendStoreDatas() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Map<String, String> extendIndexDatas() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<? extends Searchable> ListAfter(long id, int count) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	
 	
