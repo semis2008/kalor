@@ -78,10 +78,10 @@
 				<p>
 				<h5>现在大家看到的wnJava的设计样式，算是第四版了，相比前面的版本，第四版主要进行了以下几处的改进：</h5>
 				<ul class="">
-					<li>在原有风格基础上，调整并细化了部分页面的显示效果</li>
-					<li>弃用了许多技术</li>
-					<li>使用maven管理代码</li>
-					<li>使用了许多新技术，例如lucence</li>
+					<li>在原有风格基础上，调整并细化了部分页面的<span class="label label-info">显示效果</span></li>
+					<li>使用<span class="label label-info">shiro</span>框架构建网站权限控制</li>
+					<li>使用<span class="label label-info">maven</span>管理代码</li>
+					<li>使用了许多新技术，例如全文检索的<span class="label label-info">lucence</span></li>
 				</ul>
 				</p>
 			</div>

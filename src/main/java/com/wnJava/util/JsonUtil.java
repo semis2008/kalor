@@ -31,7 +31,7 @@ public class JsonUtil {
 
 	public static void outputDTOToJSON(Object dto, Boolean success, HttpServletResponse response) {
 		Map<String,Object> param = new HashMap<String, Object>();
-		param.put("success", true);
+		param.put("success", success);
 		outputDTOToJSON(dto, param, response);
 	}	
 	public static void outputDTOToJSON(Object dto, Map param, HttpServletResponse response) {

@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:task="http://www.springframework.org/schema/task"
 	xsi:schemaLocation="
@@ -10,18 +9,18 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
-	<!-- 注解  -->
+	<!-- 注解 -->
 	<context:component-scan base-package="com.wnJava" />
- 	<mvc:annotation-driven />
- 	<!-- 静态文件 -->
- 	<mvc:resources location="/static/" mapping="/static/**" />
- 	<!-- 静态文件 -->
- 	<mvc:resources location="/media/" mapping="/media/**" />
- 	
- 	<!-- 视图 -->
+	<mvc:annotation-driven />
+	<!-- 静态文件 -->
+	<mvc:resources location="/static/" mapping="/static/**" />
+	<!-- 静态文件 -->
+	<mvc:resources location="/media/" mapping="/media/**" />
+
+	<!-- 视图 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/jsp/" /> 
+		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 
@@ -33,7 +32,8 @@
 			</list>
 		</property>
 	</bean>
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"  destroy-method="close">
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
 		<property name="driverClass" value="${jdbc.driverClass}" />
 		<property name="jdbcUrl" value="${jdbc.jdbcUrl}" />
 		<property name="user" value="${jdbc.user}" />
@@ -51,7 +51,7 @@
 		<property name="idleConnectionTestPeriod" value="${jdbc.idleConnectionTestPeriod}" />
 		<property name="checkoutTimeout" value="${jdbc.checkoutTimeout}" />
 	</bean>
-	
+
 	<!-- 下面定义了DbUtils的一个模板操作Bean -->
 	<bean id="dbUtilsTemplate" class="com.wnJava.dao.template.DbUtilsTemplate">
 		<property name="dataSource" ref="dataSource" />
@@ -78,8 +78,8 @@
 		</property>
 	</bean>
 	<!-- 声明式事务管理 结束 -->
-	
-	<!-- shiro配置 
+
+	<!-- shiro配置 -->
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 		<property name="securityManager" ref="securityManager" />
 		<property name="loginUrl" value="/login" />
@@ -87,15 +87,35 @@
 		<property name="unauthorizedUrl" value="/login/unauthorized" />
 		<property name="filterChainDefinitions">
 			<value>
-				/home* = anon
-				/ = anon
+				/index = anon
+				/blog* = authc
+				/blog/* = authc
+				/lucence* = perms[lucence:view]
 				/logout = logout
-				/role/** = roles[admin]
-				/permission/** = perms[permssion:look]
-				/** = authc
 			</value>
 		</property>
 	</bean>
-	-->
-</beans>
 
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="sessionMode" value="native" />
+		<property name="realm" ref="myRealm" />
+	</bean>
+	<!--myRealm 继承自AuthorizingRealm -->
+	<bean id="myRealm" class="com.wnJava.shiro.myRealm"></bean>
+
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+	<bean
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="staticMethod"
+			value="org.apache.shiro.SecurityUtils.setSecurityManager" />
+		<property name="arguments" ref="securityManager" />
+	</bean>
+	<bean
+		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+		depends-on="lifecycleBeanPostProcessor" />
+	<bean
+		class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+
+</beans>

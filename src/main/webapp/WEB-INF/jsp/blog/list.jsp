@@ -87,8 +87,6 @@
 		type="text/javascript"></script>
 	<script src="<%=staticPath%>/js/jquery.sausage.js<%=version%>"
 		type="text/javascript"></script>
-	<script src="<%=staticPath%>/js/common.js<%=version%>"
-		type="text/javascript"></script>
 	<script src="<%=staticPath%>/js/blogList.js<%=version%>"
 		type="text/javascript"></script>
 </body>

@@ -40,4 +40,9 @@ public class UserServiceImpl implements UserService {
 	public List<UserBO> getUsers() {
 		return userDao.queryUsers();
 	}
+
+	@Override
+	public UserBO getUserByName(String name) {
+		return userDao.queryUserByEmail(name);
+	}
 }

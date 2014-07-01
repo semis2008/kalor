@@ -24,6 +24,13 @@ public interface UserService {
 	UserBO getUserByID(String id);
 	
 	/**
+	 * 依据用户id查询用户信息
+	 * @param id 用户id
+	 * @return 用户实体类
+	 */
+	UserBO getUserByName(String name);
+	
+	/**
 	 * 获取活跃用户
 	 * @param num 数目
 	 * @return

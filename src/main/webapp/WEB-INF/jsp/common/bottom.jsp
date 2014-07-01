@@ -22,4 +22,6 @@
 	type="text/javascript"></script>
 <script src="<%=staticPath%>/js/bootstrap.js<%=version%>"
 	type="text/javascript"></script>
+<script src="<%=staticPath%>/js/common.js<%=version%>"
+	type="text/javascript"></script>
 <!-- END CORE PLUGINS -->

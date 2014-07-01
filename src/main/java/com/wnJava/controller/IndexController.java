@@ -57,11 +57,11 @@ public class IndexController {
 		infoVO.setUserCount(userService.getUsers().size());
 		//随机获取推荐日志
 		DiaryBO topDiary = diaryService.getTopDiaryRand();	
+		topDiary.setContent(StringUtil.escapeHtmlTags(topDiary.getContent()));
 		// 获取活跃用户
 		List<UserBO> activeUsers = userService.getActiveUsers(8);
 		// 获取热门日志
 		List<DiaryBO> hotDiaries = diaryService.getHotDiaries(18);
-		topDiary.setContent(StringUtil.escapeHtmlTags(topDiary.getContent()));
 		List<DiaryBO> leftHotList = hotDiaries.subList(0, 8);
 		List<DiaryBO> rightHotList = hotDiaries.subList(9, 17);
 		

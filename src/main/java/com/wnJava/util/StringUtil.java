@@ -22,10 +22,16 @@ public class StringUtil {
 	 */
 	public static String passEncrypt(String password) {
 		String temp = EncryptUtil.Encrypt(password, null);
-		password = temp + "asdasd";
+		password = temp + "a86aff6cf0a1";
 		return EncryptUtil.Encrypt(password, null);
 	}
 
+	public static void main(String args[]) {
+		String p = passEncrypt("wangning");
+		System.out.print(p);
+		
+	}
+	
 /**
 	 * 
 	  * 过滤Str中全部的html标签及内容,
