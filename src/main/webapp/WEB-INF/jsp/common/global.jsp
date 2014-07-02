@@ -1,9 +1,11 @@
+<%@page import="com.wnJava.vo.UserVO"%>
 <%@ page pageEncoding="utf-8" %>
 <%
 	// 设置basePath参数
 	String contextPath = request.getContextPath(); // 工程路径
 	int serverPort = request.getServerPort(); // 服务器端口
 	StringBuffer urlStr = request.getRequestURL();
+	UserVO user = (UserVO)request.getAttribute("loginUser");
 	
 	//获取当前页面模块
 	String fun = "index";
@@ -24,5 +26,6 @@
 	String version = "?v_1.0.0";
 	String staticPath = contextPath + "/static";
 	String ICP_BEIAN = "2013 京ICP备13011487号";
+	
 %>
 <!DOCTYPE html>

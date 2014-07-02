@@ -84,7 +84,7 @@
 		<property name="securityManager" ref="securityManager" />
 		<property name="loginUrl" value="/login" />
 		<property name="successUrl" value="/index" />
-		<property name="unauthorizedUrl" value="/login/unauthorized" />
+		<property name="unauthorizedUrl" value="/unauthorized" />
 		<property name="filterChainDefinitions">
 			<value>
 				/index = anon

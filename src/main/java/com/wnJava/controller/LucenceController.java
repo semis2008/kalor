@@ -20,7 +20,10 @@ import com.wnJava.search.IndexHolder;
 import com.wnJava.search.SearchHelper;
 import com.wnJava.search.Searchable;
 import com.wnJava.service.DiaryService;
+import com.wnJava.service.UserService;
 import com.wnJava.util.JsonUtil;
+import com.wnJava.util.WebUtil;
+import com.wnJava.vo.UserVO;
 import com.wnJava.vo.lucence.DiaryVO;
 import com.wnJava.vo.lucence.IndexInfo;
 
@@ -30,11 +33,13 @@ public class LucenceController {
 	
 	@Resource
 	private DiaryService diaryService;
-	
+	@Resource
+	private UserService userService;
 	@RequestMapping
 	private ModelAndView showLucencePage(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		IndexInfo indexInfo = getIndexInfo(new DiaryVO());
-		
+		UserVO userVO = WebUtil.getLoginUserInfo(userService, diaryService);
+		req.setAttribute("loginUser", userVO);
 		req.setAttribute("blogInfo", indexInfo);
 		return new ModelAndView("/lucence/index");
 	}

@@ -40,7 +40,7 @@ function userLogin(){
 	// 异步登录
 	$.ajax({
 		type : "POST",
-		url : path + "/ajax/login",
+		url : path + "/user/login",
 		data : {
 			email : email,
 			password : pass

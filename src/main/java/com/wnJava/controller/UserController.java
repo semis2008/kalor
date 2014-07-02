@@ -42,11 +42,8 @@ import com.wnJava.vo.TagVO;
  * @time 2012-12-14
  */
 @Controller
+@RequestMapping("/user")
 public class UserController {
-	@Resource
-	private UserService userService;
-	@Resource
-	private DiaryService diaryService;
 
 	/**
 	 * 登陆
@@ -56,7 +53,7 @@ public class UserController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/ajax/login")
+	@RequestMapping(value = "/login")
 	private void login(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		String email = (String) req.getParameter("email");
 		String password = (String) req.getParameter("password");
@@ -77,41 +74,4 @@ public class UserController {
 		JsonUtil.outputDTOToJSON(null, true, resp);
 	}
 
-	/**
-	 * 显示主页
-	 * 
-	 * @param req
-	 * @param resp
-	 * @return
-	 * @throws Exception
-	 */
-	@RequestMapping(value = "/login")
-	private ModelAndView showLogin(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		// 获取热门日志
-		List<DiaryBO> hotDiaries = diaryService.getHotDiaries(18);
-		List<DiaryBO> leftHotList = hotDiaries.subList(0, 8);
-		List<DiaryBO> rightHotList = hotDiaries.subList(9, 17);
-		req.setAttribute("leftHotDiary", leftHotList);
-		req.setAttribute("rightHotDiary", rightHotList);
-		return new ModelAndView("login");
-	}
-
-	/**
-	 * 显示主页
-	 * 
-	 * @param req
-	 * @param resp
-	 * @return
-	 * @throws Exception
-	 */
-	@RequestMapping(value = "/regist")
-	private ModelAndView showRegist(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		// 获取活跃用户
-		List<UserBO> activeUsers = userService.getActiveUsers(8);
-		// 获取留言
-		List<LeaveMsgBO> leaveMsgs = userService.getLeaveMsg(5);
-		req.setAttribute("leaveMsgs", leaveMsgs);
-		req.setAttribute("activeUsers", activeUsers);
-		return new ModelAndView("regist");
-	}
 }

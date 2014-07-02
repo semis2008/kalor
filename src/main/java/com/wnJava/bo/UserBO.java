@@ -3,6 +3,8 @@ package com.wnJava.bo;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.wnJava.vo.UserVO;
+
 /**
  * 用户基本信息实体类
  * 
@@ -82,4 +84,10 @@ public class UserBO implements Serializable {
 		this.user_level = user_level;
 	}
 
+	public UserVO toVO() {
+		UserVO userVO = new UserVO();
+		userVO.setId(id);
+		userVO.setName(name);
+		return userVO;
+	}
 }

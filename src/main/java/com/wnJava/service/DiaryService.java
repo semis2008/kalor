@@ -91,4 +91,5 @@ public interface DiaryService {
 	 */
 	List<String> getAllTags();
 
+	int getDiaryCountByUser(Long userId);
 }

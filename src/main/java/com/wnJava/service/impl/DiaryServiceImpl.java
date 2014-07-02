@@ -119,5 +119,9 @@ public class DiaryServiceImpl implements DiaryService {
 		return hotTags;
 		
 	}
+	@Override
+	public int getDiaryCountByUser(Long userId) {
+		return diaryDao.queryDiaryNumByUserId(userId);
+	}
 
 }
