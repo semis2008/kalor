@@ -10,7 +10,7 @@ public class CroupManager {
 		
 		Group group = new Group();
 		List<String> permissions = new ArrayList<String>();
-		permissions.add("view:members");
+		permissions.add("lucence:view");
 		permissions.add("edit:self");
 		group.setPermissionList(permissions);
 		
